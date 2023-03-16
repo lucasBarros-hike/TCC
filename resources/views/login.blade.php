@@ -2,7 +2,7 @@
 
 @section('standard')
 <div class="container">
-        <form id="myForm" class="form small">
+        <form id="myForm" action="" class="form small">
           <h2>Login</h2>
             <div class="input-box">
                 <label for="email">Email: </label>
