@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&family=Ubuntu:wght@400;500;700&display=swap');
+
+:root{
+    --cor-primaria: #e74c3c;
+    --red: #e74c3c;
+    --orange: #f39c12;
+    --white: #fff;
+    --black: #2c3e50;
+    --light-color: #888;
+    --light-bg: #eee;
+    --border: .1rem solid rgba(0,0,0,.2);
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+}
+
+*::selection{
+    background-color: var(--cor-primaria);
+    color: #fff;
+}
+*::-webkit-scrollbar{
+    height: .5rem;
+    width: 1rem;
+}
+*::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: var(--cor-primaria);
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body{
+    background-color: var(--light-bg);
+    
+}
+body.dark{
+    --white: #222;
+    --black: #fff;
+    --light-color: #aaa;
+    --light-bg: #333;
+    --border: .1rem solid rgba(255,255,255,.2);
+}
+section{
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    
+} 
+.titulo{
+    padding-bottom: 1.8rem;
+    border-bottom: var(--border);
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+}
+.text{
+    font-size: 1.6rem;
+    color: var(--black);
+}
+.text-small{
+    font-size: 1.3rem;
+    color: var(--black);
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+/* botões */
+.btn,
+.option-btn,
+.delete-btn,
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+    border-radius: .5rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-top: 1rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bolder;
+}
+.btn,
+.option-btn,
+.delete-btn{
+    display: block;
+    width: 100%;
+}
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+    display: inline-block;
+}
+.btn,
+.inline-btn{
+    background-color: var(--cor-primaria);
+}
+.option-btn,
+.inline-option-btn{
+    background-color: var(--orange);
+}
+.delete-btn,
+.inline-delete-btn{
+    background-color: var(--red);
+}
+.btn:hover,
+.option-btn:hover,
+.delete-btn:hover,
+.inline-btn:hover,
+.inline-option-btn:hover,
+.inline-delete-btn:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* fim botão */
+
+/* começo do header */
+.header{
+    background-color: var(--white);
+    border-bottom: var(--border);
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+}
+.header .flex{
+    padding: 1.5rem 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .flex .busca-form{
+    width: 50rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--light-bg);
+}
+.header .flex .busca-form input{
+    width: 100%;
+    background:none;
+    font-size: 1.8rem;
+    color: var(--black);
+}
+.header .flex .busca-form button{
+    font-size: 2rem;
+    color: var(--black);
+    cursor: pointer;
+    background: none;
+}
+.header .flex .busca-form button:hover{
+    color: var(--cor-primaria);
+}
+.header .flex .icons{
+    display: flex;
+    
+}
+.header .flex .icons .flex-btn{
+    display: flex;
+    
+}
+.header .flex .icons .flex-btn a{
+    margin-left: 0.5rem;
+}
+.header .flex .icons .icon div{
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: var(--black);
+    border-radius: .5rem;
+    height: 4.5rem;
+    cursor: pointer;
+    width: 4.5rem;
+    line-height: 4.4rem;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.header .flex .icons .icon div:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+#search-btn, #menu-btn{
+    display: none;
+}
+
+
+/* começo navbar */
+.navbar{
+    background-color: var(--white);
+    border-bottom: var(--border);
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    z-index: 1500;
+}
+.navbar .flex{
+    padding: 1.5rem 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.navbar .flex a{
+    font-size: 1.9rem;
+    color: var(--black);
+    font-weight: bolder;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--white);
+    
+}
+.navbar .flex a:hover, .navbar .flex a.active{
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-primaria);
+}
+/* fim navbar */
+/* fim do header */
+
+/* pagina login e cadastro começo */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+.container .form{
+    background-color: var(--white);
+    width: 35rem;
+    max-height: 50rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem 4.5rem 2.5rem;
+    border: var(--border);
+    box-shadow: 0 0 0.5rem rgba(0,0,0,.5);
+    border-radius: 2rem;
+}
+.container .form.small{
+    max-height: 37rem;
+}
+.container .form div{
+    margin: 0.5rem;
+}
+.container .form h2{
+    padding-bottom: 1.8rem;
+    text-align: center;
+    border-bottom: var(--border);
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    margin-bottom: 2rem;   
+}
+
+.container .form .input-box input{
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.8rem;
+    background-color: var(--light-bg);
+    color: var(--black);
+    border-radius: .5rem;
+    border-width: 0px 0px 2px 0px;
+}
+.container .form label{
+    font-size: 1.5rem;
+}
+.container .form .link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+.container .form .link a{
+    color: var(--cor-primaria);
+}
+/* fim login cadastro */
+
+/* começo da sidebar */
+/* .sidebar{
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 25rem;
+    background-color: var(--white);
+    border-right: var(--border);
+}
+.sidebar .perfil{
+    padding: 3rem 2rem;
+    text-align: center;
+}
+.sidebar .perfil img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+.sidebar .perfil h3{
+    font-size: 2rem;
+    color: var(--black);
+
+}
+.sidebar .perfil span{
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
+.sidebar .navbar{
+    margin-top: 1rem;
+}
+.sidebar .navbar a{
+    display: block;
+    padding: 2rem;
+    margin: .5rem 0;
+    font-size: 1.8rem;
+}
+.sidebar .navbar a i{
+    color: var(--cor-primaria);
+    margin-right: 0.5rem;
+    transition: .2s linear;
+}
+.sidebar .navbar a span{
+    color: var(--light-color);
+}
+.sidebar .navbar a:hover{
+    background-color: var(--light-bg);
+}
+.sidebar .navbar a:hover i{
+    margin-right: 2.5rem;
+} */
+/* fim da sidebar */
+
+/* começo da home */
+
+.home .principal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home .principal .img{
+    width: 50%;
+    
+}
+.home .principal .slogan{
+    width: 40%;
+    padding: 1rem 3rem 3rem 3rem;
+}
+.home .principal .slogan p{
+    font-size: 3rem;
+    color: var(--black);
+    font-weight: bold;
+}
+
+
+/* fim da home */
+
+
+/* pagina materia */
+ .materia .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+ }
+ 
+ .materia .box-container .box{
+    border-radius: .5rem;
+    background-color: var(--white);
+    padding: 2rem;
+ }
+ 
+ 
+ .materia .box-container .box .thumb{
+    position: relative;
+ }
+ 
+ .materia .box-container .box .thumb span{
+    position: absolute;
+    top:1rem; left: 1rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    background-color: rgba(0,0,0,.3);
+    color: #fff;
+    font-size: 1.5rem;
+ }
+ 
+ .materia .box-container .box .thumb img{
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: .5rem;
+ }
+ 
+ .materia .box-container .box .title{
+    font-size: 2rem;
+    color: var(--black);
+    padding-bottom: .5rem;
+    padding-top: 1rem;
+ }
+
+
+/* pweb começo */
+
+/* pweb fim */
+
+
+/* fim da materia */
+
+/* começo do forum */
+
+.forum-principal{
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.forum-principal .subforum{
+    margin-top: 2rem;
+}
+
+.forum-principal .subforum .subforum-title{
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+}
+
+.forum-principal .subforum .subforum-row{
+    display: grid;
+    grid-template-columns: 7% 60% 13% 20%;
+}
+
+.forum-principal .subforum .subforum-row .subforum-column{
+    padding: 10px;
+    margin:4px;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+.forum-principal .subforum .subforum-row .subforum-column h4 a{
+    font-size: 1.6rem;
+    color: var(--cor-primaria);
+}
+.forum-principal .subforum .subforum-row .subforum-column a{
+    font-size: 1.2rem;
+    color: var(--cor-primaria);
+}
+
+.subforum-icon i{
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.forum{
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    
+}
+.forum .painel{
+    background-color: var(--white);
+    width: 100%;
+    max-height: 50rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem 4.5rem 2.5rem;
+    border: var(--border);
+    box-shadow: 0 0 0.5rem rgba(0,0,0,.5);
+    border-radius: 2rem;
+    
+}
+.forum .painel .painel-box{
+    font-size: 1.8rem;
+    color: var(--black);
+}
+.forum .painel .painel-box input{
+    width: 100%;
+    height: 4rem;
+    font-size: 1.8rem;
+    background-color: var(--light-bg);
+    color: var(--black);
+    border-radius: .5rem;
+    border-width: 0px 0px 2px 0px;
+}
+.forum .painel .painel-box textarea{
+    width: 100%;
+    height: 15rem;
+    font-size: 1.8rem;
+    background-color: var(--light-bg);
+    color: var(--black);
+    border-radius: .5rem;
+    border-width: 0px 0px 2px 0px;
+}
+
+
+/* fim do forum */
+
+/* aqui é o footer */
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    padding: 1.5rem 1.5rem;
+    background-color: var(--white);
+    min-height: 5rem;
+}
+.footer .boxs{
+    width: 35rem;
+    min-height: 1.5rem;
+    padding: 0.5rem;
+}
+.footer .boxs h2{
+    padding-bottom: 1.8rem;
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    
+}
+.footer .boxs ul li{
+    list-style: none;
+    padding: .5rem .5rem;
+}
+.footer .boxs ul li a,p{
+    color: var(--black);
+    font-size: 1.2rem;
+}
+.footer .boxs ul li a:hover{
+    color: var(--cor-primaria);
+}
+
+
+
+
+
+
+
+/* media queries  */  
+@media (max-width:991px){  
+    html{  
+        font-size: 55%;  
+    }  
+}  
+@media (max-width:768px){  
+    #search-btn{
+        display: inline-block;
+    }
+    .header .flex .busca-form{
+        position: absolute;
+        top:99%; left: 0; right: 0;
+        width: auto;
+        border-top: var(--border);
+        border-bottom: var(--border);
+        background-color: var(--white);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: .1s linear;
+    }
+    .header .flex .busca-form.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}  
+@media (max-width:450px){  
+    html{
+        font-size: 50%;  
+    }
+    .titulo{
+        font-size: 2rem;
+    }
+    .flex-btn{
+        flex-flow: column;
+        gap: 0;
+    }
+}  
