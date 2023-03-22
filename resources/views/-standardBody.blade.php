@@ -7,7 +7,7 @@
 
       <!-- <a href="home.html" class="logo">Vulp</a> -->
       
-      <img src="{{ asset('images/VolpeLogo.png') }}" class="logo" width="55px" height="55px">
+      <img src="{{ asset('images/2.png') }}" class="logo" width="55px" height="55px">
   
       <form action="" method="post" class="busca-form">
 
