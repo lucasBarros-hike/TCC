@@ -1,4 +1,4 @@
-@extends('-standardHtml')
+@extends('layouts.Html')
 
 @section('standard')
 <!-- começo do header -->
@@ -38,8 +38,8 @@
         <a href="{{url('/')}}" class="active"><span>Menu</span></a>
         <a href="{{url('/materias')}}"><span>Materias</span></a>
         <a href="{{url('/forum')}}"><span>Forum</span></a>
-        <a href="{{url('/')}}"><span>Sobre</span></a>
-        <a href="{{url('/')}}"><span>Contate-nos</span></a>
+        <a href="#"><span>Sobre</span></a>
+        <a href="#"><span>Contate-nos</span></a>
       </div>
     </nav>
   </header>

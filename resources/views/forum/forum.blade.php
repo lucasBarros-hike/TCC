@@ -1,4 +1,4 @@
-@extends('-standardBody')
+@extends('layouts.Body')
 
 @section('content')
 <div class="forum-principal">
@@ -22,10 +22,10 @@
             </div>
         </div>
         <div class="subforum">
-            
             <div class="subforum-title">
                 <h1>Recentes</h1>
             </div>
+
             <div class="subforum-row">
                 <div class="subforum-icon subforum-column">
                     <i class="fa-brands fa-css3-alt" style="color:#1572B6 ;"></i>

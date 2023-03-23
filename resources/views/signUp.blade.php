@@ -1,30 +1,33 @@
-@extends('-standardHtml')
+@extends('layouts.Html')
 
 @section('standard')
 <div class="container">
-        <form id="myForm" class="form">
-          <h2>Login</h2>
+        <form method="POST" id="myForm" class="form" action="{{ route('cadastro.store') }}">
+          @csrf
+          <h2>Cadastro</h2>
+          <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
             <div class="input-box">
                 <label for="username">Nome: </label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" name="username" id="username" name="username" value="{{ old('username') }}" required>
             </div>
             <div class="input-box">
                 <label for="email">Email: </label>
-                <input type="text" id="email" name="email" required>
+                <input type="email" name="email" id="email" name="email" value="{{ old('email') }}" required>
             </div>
             <div class="input-box">
                 <label for="password">Senha: </label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" name="password" id="password" name="password" value="{{ old('password') }}" required>
             </div>
             <div class="input-box">
                 <label for="password">Repetir senha: </label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" name="password_confirmation" id="password" name="password" value="{{ old('password_confirmation') }}" required>
             </div>
             <div class="forget">
                 <label for=""><input type="checkbox">Lembrar me?</label>
             </div>
             <div class="button">
-                <a href="" class="option-btn">Entrar</a>
+                <button type="submit" class="option-btn">Cadastrar</button>
             </div>
           <div class="link">
             <p><a href="">Esqueci minha senha</a></p>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages;
+use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +16,22 @@ use App\Http\Controllers\Pages;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', function () {return view('home');});
 
-Route::get('/cadastro',[Pages::class, 'showSignUp']);
-Route::get('/login',[Pages::class, 'showLogin']);
+// Route::get('/cadastro',[Pages::class, 'showSignUp']);
+Route::get('/login', [LoginController::class, 'show'])->name('login.show');
+Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 
 Route::group(['prefix' => 'materias'], function () {
-    Route::get('/',[Pages::class, 'showSubjects']);
-    Route::get('/pweb',[Pages::class, 'showSubjectPweb']);
+    Route::get('/', function () {return View('subjects.subjects');});
+
+    Route::get('/pweb', function() {return View('subjects.subjectsPweb');});
 });
 
 Route::group(['prefix' => 'forum'], function () {
-    Route::get('/',[Pages::class, 'showForum']);
-    Route::get('/pergunta',[Pages::class, 'showForumQuestion']);
+    Route::get('/', function() {return View('forum.forum');});
+
+    Route::get('/pergunta', function() {return View('forum.forumQuestion');});
 });
+
+Route::resource('cadastro', CadastroController::class);

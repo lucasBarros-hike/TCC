@@ -1,4 +1,4 @@
-@extends('-standardBody')
+@extends('layouts.Body')
 
 @section('content')
 <div class="forum">
