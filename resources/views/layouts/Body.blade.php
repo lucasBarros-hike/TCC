@@ -19,12 +19,12 @@
 
       <div class="icons">
         <div class="icon">
-            <div id="toggle-btn" class="fas fa-sun"></div>
             <div id="search-btn" class="fas fa-search"></div>
+            <div id="toggle-btn" class="fas fa-sun"></div>
             <div id="menu-btn" class="fas fa-bars"></div>
         </div>
 
-        <div class="flex-btn">
+        <div class="botao">
           <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
           <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
         </div>
@@ -33,7 +33,26 @@
     
     
     </section>
+    <!-- começo do sidebar -->
+  <div class="sidebar">
+    <div class="perfil">
+      <img src="img/pic-1.jpg" alt="" srcset="">
+      <h3>Pessoa</h3>
+      <span>Estudante</span>
+      <a href="perfil.html" class="btn">Ver perfil</a>
+      
+    </div>
     <nav class="navbar">
+      <a href="{{url('/')}}" class="active" ><i class="fas fa-home"></i><span>Menu</span></a>
+      <a href="{{url('/materias')}}"><i class="fas fa-graduation-cap"></i><span>Materias</span></a>
+      <a href="{{url('/forum')}}"><i class="fa-solid fa-comment"></i><span>Forum</span></a>
+      <a href="#"><i class="fas fa-chalkboard-user"></i><span>Sobre</span></a>
+      <a href="#"><i class="fas fa-headset"></i><span>Contate-nos</span></a>
+    </nav>
+ </div>
+
+  <!-- fim do sidebar -->
+    <!-- <nav class="navbar">
       <div class="flex">
         <a href="{{url('/')}}" class="active"><span>Menu</span></a>
         <a href="{{url('/materias')}}"><span>Materias</span></a>
@@ -41,7 +60,7 @@
         <a href="#"><span>Sobre</span></a>
         <a href="#"><span>Contate-nos</span></a>
       </div>
-    </nav>
+    </nav> -->
   </header>
   
   <!-- fim do header -->

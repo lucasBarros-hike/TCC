@@ -40,7 +40,7 @@ html{
 }
 body{
     background-color: var(--light-bg);
-    
+    padding-left: 30rem;
 }
 body.dark{
     --white: #222;
@@ -175,16 +175,18 @@ section{
     display: flex;
     
 }
-.header .flex .icons .flex-btn{
+.header .flex .icons .botao{
     display: flex;
-    
+    height: 50%;
+    margin-bottom: 1rem;
 }
-.header .flex .icons .flex-btn a{
+.header .flex .icons .botao a{
     margin-left: 0.5rem;
 }
 .header .flex .icons .icon div{
     font-size: 2rem;
     margin-top: 1rem;
+    margin-left: 0.3rem;
     color: var(--black);
     border-radius: .5rem;
     height: 4.5rem;
@@ -204,8 +206,64 @@ section{
 }
 
 
+/* começo da sidebar */
+.sidebar{
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 30rem;
+    background-color: var(--white);
+    border-right: var(--border);
+}
+.sidebar .perfil{
+    padding: 3rem 2rem;
+    text-align: center;
+}
+.sidebar .perfil img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+.sidebar .perfil h3{
+    font-size: 2rem;
+    color: var(--black);
+
+}
+.sidebar .perfil span{
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
+.sidebar .navbar{
+    margin-top: 1rem;
+}
+.sidebar .navbar a{
+    display: block;
+    padding: 2rem;
+    margin: .5rem 0;
+    font-size: 1.8rem;
+}
+.sidebar .navbar a i{
+    color: var(--cor-primaria);
+    margin-right: 1rem;
+    transition: .2s linear;
+}
+.sidebar .navbar a span{
+    color: var(--light-color);
+}
+.sidebar .navbar a:hover{
+    background-color: var(--light-bg);
+}
+.sidebar .navbar a:hover i{
+    margin-right: 2.5rem;
+}
+/* fim da sidebar */
+
+
+
 /* começo navbar */
-.navbar{
+/* .navbar{
     background-color: var(--white);
     border-bottom: var(--border);
     position: sticky;
@@ -231,7 +289,7 @@ section{
 .navbar .flex a:hover, .navbar .flex a.active{
     color: var(--cor-primaria);
     border-bottom: 2px solid var(--cor-primaria);
-}
+} */
 /* fim navbar */
 /* fim do header */
 
@@ -292,60 +350,6 @@ section{
     color: var(--cor-primaria);
 }
 /* fim login cadastro */
-
-/* começo da sidebar */
-/* .sidebar{
-    position: fixed;
-    top: 0; left: 0;
-    height: 100vh;
-    width: 25rem;
-    background-color: var(--white);
-    border-right: var(--border);
-}
-.sidebar .perfil{
-    padding: 3rem 2rem;
-    text-align: center;
-}
-.sidebar .perfil img{
-    height: 10rem;
-    width: 10rem;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: .5rem;
-}
-.sidebar .perfil h3{
-    font-size: 2rem;
-    color: var(--black);
-
-}
-.sidebar .perfil span{
-    color: var(--light-color);
-    font-size: 1.6rem;
-}
-.sidebar .navbar{
-    margin-top: 1rem;
-}
-.sidebar .navbar a{
-    display: block;
-    padding: 2rem;
-    margin: .5rem 0;
-    font-size: 1.8rem;
-}
-.sidebar .navbar a i{
-    color: var(--cor-primaria);
-    margin-right: 0.5rem;
-    transition: .2s linear;
-}
-.sidebar .navbar a span{
-    color: var(--light-color);
-}
-.sidebar .navbar a:hover{
-    background-color: var(--light-bg);
-}
-.sidebar .navbar a:hover i{
-    margin-right: 2.5rem;
-} */
-/* fim da sidebar */
 
 /* começo da home */
 
@@ -493,8 +497,8 @@ section{
     display: flex;
     flex-direction: column;
     padding: 2.5rem 2.5rem 4.5rem 2.5rem;
-    border: var(--border);
-    box-shadow: 0 0 0.5rem rgba(0,0,0,.5);
+    
+    
     border-radius: 2rem;
     
 }
