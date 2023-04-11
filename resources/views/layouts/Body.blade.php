@@ -4,11 +4,9 @@
 <!-- começo do header -->
   <header class="header">
     <section class="flex">
-
-      <!-- <a href="home.html" class="logo">Vulp</a> -->
       
-      <img src="{{ asset('images/2.png') }}" class="logo" width="55px" height="55px">
-  
+      <img src="{{ asset('images/volpe_white.png') }}" class="logo" >
+      
       <form action="" method="post" class="busca-form">
 
         <input type="text" name="busca_box" placeholder="Buscar..." required maxlength="100">
