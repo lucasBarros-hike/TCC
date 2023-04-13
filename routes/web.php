@@ -23,9 +23,9 @@ Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 
 Route::group(['prefix' => 'materias'], function () {
-    Route::get('/', function () {return View('subjects.subjects');});
+    Route::get('/', function () {return View('subjects.subjects');})->name('subjects');
 
-    Route::get('/pweb', function() {return View('subjects.subjectsPweb');});
+    Route::get('/Chat', function() {return View('subjects.subjectsChat');})->name('subjectsChat');
 });
 
 Route::group(['prefix' => 'forum'], function () {
