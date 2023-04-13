@@ -41,6 +41,10 @@ html{
 body{
     background-color: var(--light-bg);
     padding-left: 30rem;
+    transition: .2s linear;
+}
+body.active{
+    padding-left: 0;
 }
 body.dark{
     --white: #222;
@@ -131,7 +135,10 @@ section{
     background-color: var(--black);
     color: var(--white);
 }
-
+.flex-btn{
+    display: flex;
+    gap: 1rem;
+}
 /* fim botão */
 
 /* começo do header */
@@ -176,16 +183,9 @@ section{
 }
 .header .flex .icons{
     display: flex;
-    
-}
-.header .flex .icons .botao{
-    display: flex;
-    height: 50%;
     margin-bottom: 1rem;
 }
-.header .flex .icons .botao a{
-    margin-left: 0.5rem;
-}
+
 .header .flex .icons .icon div{
     font-size: 2rem;
     margin-top: 1rem;
@@ -204,7 +204,7 @@ section{
     background-color: var(--black);
     color: var(--white);
 }
-#search-btn, #menu-btn{
+#search-btn{
     display: none;
 }
 
@@ -217,10 +217,31 @@ section{
     width: 30rem;
     background-color: var(--white);
     border-right: var(--border);
+    transition: .2s linear;
 }
 .sidebar .perfil{
     padding: 3rem 2rem;
     text-align: center;
+}
+
+.sidebar .close-sidebar{
+    text-align: right;
+    padding: 2rem;
+    padding-bottom: 0;
+    display: none;
+}
+.sidebar .close-sidebar i{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.4rem;
+    font-size: 2rem;
+    color: var(--white);
+    background-color: var(--red);
+    text-align: center;
+    border-radius: .5rem;
+}
+.sidebar .close-sidebar i:hover{
+    background-color: var(--black);
 }
 .sidebar .perfil img{
     height: 10rem;
@@ -238,6 +259,8 @@ section{
     color: var(--light-color);
     font-size: 1.6rem;
 }
+
+
 .sidebar .navbar{
     margin-top: 1rem;
 }
@@ -252,6 +275,7 @@ section{
     margin-right: 1rem;
     transition: .2s linear;
 }
+
 .sidebar .navbar a span{
     color: var(--light-color);
 }
@@ -260,6 +284,11 @@ section{
 }
 .sidebar .navbar a:hover i{
     margin-right: 2.5rem;
+}
+
+
+.sidebar.active{
+    left: -31rem;
 }
 /* fim da sidebar */
 
@@ -361,20 +390,28 @@ section{
     align-items: center;
     justify-content: center;
 }
-.home .principal .img{
-    width: 50%;
+.home .principal .home-img img{
+    width: 100%;
+
+}
+.home .principal .home-slogan{
+    padding: 1rem 3rem 3rem 3rem;
     
 }
-.home .principal .slogan{
-    width: 40%;
-    padding: 1rem 3rem 3rem 3rem;
-}
-.home .principal .slogan p{
-    font-size: 3rem;
+.home .principal .home-slogan p{
+    font-size: 2.7rem;
     color: var(--black);
     font-weight: bold;
 }
-
+.credito-img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    text-align: center;
+}
 
 /* fim da home */
 
@@ -532,7 +569,7 @@ section{
 /* fim do forum */
 
 /* aqui é o footer */
-.footer{
+/* .footer{
     position: relative;
     bottom: 0;
     width: 100%;
@@ -563,8 +600,27 @@ section{
 }
 .footer .boxs ul li a:hover{
     color: var(--cor-primaria);
-}
+} */
 
+
+.footer{
+    background-color: var(--white);
+    border-top: var(--border);
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    font-size: 2rem;
+    padding:2.5rem 2rem;
+    color:var(--black);
+    margin-top: 1rem;
+    z-index: 1000;
+    /* padding-bottom: 9.5rem; */
+ }
+ 
+ .footer span{
+    color:var(--cor-primaria);
+ }
+ 
 
 
 
@@ -572,6 +628,23 @@ section{
 
 
 /* media queries  */  
+@media (max-width:1200px){  
+
+    body{
+        padding-left: 0;
+    }
+    .sidebar{
+        transition: .2s linear;
+        left: -30rem;
+    }
+    .sidebar.active{
+        left: 0;
+        box-shadow: 0 0 0 100vw rgba(0,0,0,.7);
+    }
+    .sidebar .close-sidebar{
+        display: block;
+    }
+}  
 @media (max-width:991px){  
     html{  
         font-size: 55%;  
@@ -598,9 +671,6 @@ section{
 @media (max-width:450px){  
     html{
         font-size: 50%;  
-    }
-    .titulo{
-        font-size: 2rem;
     }
     .flex-btn{
         flex-flow: column;

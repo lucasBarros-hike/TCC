@@ -8,10 +8,26 @@ document.querySelector('#search-btn').onclick = () =>{
     profile.classList.remove('active');
 }
 
+let sideBar = document.querySelector(' .sidebar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+    sideBar.classList.toggle('active');
+    body.classList.toggle('active');
+}
+
+document.querySelector('.sidebar .close-sidebar').onclick = () =>{
+    sideBar.classList.remove('active');
+    body.classList.remove('active');
+}
 
 window.onscroll = () =>{
     profile.classList.remove('active');
     searchForm.classList.remove('active');
+    
+    if(window.innerWidth < 1200){
+      searchForm.classList.toggle('active');
+      profile.classList.remove('active');
+    }
 }
 
 window.onload = function() {

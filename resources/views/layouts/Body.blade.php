@@ -22,10 +22,7 @@
             <div id="menu-btn" class="fas fa-bars"></div>
         </div>
 
-        <div class="botao">
-          <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
-          <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
-        </div>
+        
       </div>
       
     
@@ -33,11 +30,19 @@
     </section>
     <!-- começo do sidebar -->
   <div class="sidebar">
+
+    <div class="close-sidebar">
+      <i class="fas fa-times"></i>
+    </div>
     <div class="perfil">
-      <img src="img/pic-1.jpg" alt="" srcset="">
-      <h3>Pessoa</h3>
-      <span>Estudante</span>
-      <a href="perfil.html" class="btn">Ver perfil</a>
+        <img src="../images/pic-2.jpg" alt="" srcset="">
+        <h3>Pessoa</h3>
+        <span>Estudante</span>
+        <a href="perfil.html" class="btn">Ver perfil</a>
+      <div class="flex-btn">
+          <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
+          <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
+      </div>
       
     </div>
     <nav class="navbar">
@@ -67,34 +72,8 @@
 
   <!-- começo do footer -->
   <footer class="footer">
-    <div class="boxs">
-      <h2>Inicio</h2>
-      <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Materias</a></li>
-        <li><a href="">Chat</a></li>
-      </ul>
-    </div>
-    <div class="boxs">
-      <h2>Informações</h2>
-      <ul>
-        <li><a href="">Contato</a></li>
-        <li><a href="">Email</a></li>
-        <li><a href=""></a></li>
-      </ul>
-    </div>
-    <div class="boxs">
-      <h2>Suporte</h2>
-      <ul>
-        <li><a href="">FAQ</a></li>
-        <li><a href="">Telefone</a></li>
-        <li><a href="">Chat</a></li>
-      </ul>
-    </div>
-    <div class="boxs">
-      <h2>Sobre nós</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut explicabo aliquam voluptatibus culpa beatae eum inventore autem, temporibus atque sunt minima tempora nesciunt vitae vero maiores quae, quod eveniet quam?</p>
-    </div>
+      &copy; Volpe @ 2023 by <span>Volpe</span> | all rights reserved! </br>
+      <a href="https://storyset.com/people">People illustrations by Storyset</a>
   </footer>
 
 @endsection
