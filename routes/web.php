@@ -22,10 +22,12 @@ Route::get('/', function () {return view('home');});
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 
-Route::group(['prefix' => 'materias'], function () {
-    Route::get('/', function () {return View('subjects.subjects');});
+Route::resource('cadastro', CadastroController::class);
 
-    Route::get('/pweb', function() {return View('subjects.subjectsPweb');});
+Route::group(['prefix' => 'materias'], function () {
+    Route::get('/', function () {return View('subjects.subjects');})->name('subjects');
+
+    Route::get('/Chat', function() {return View('subjects.subjectsChat');})->name('subjectsChat');
 });
 
 Route::group(['prefix' => 'forum'], function () {
@@ -34,4 +36,5 @@ Route::group(['prefix' => 'forum'], function () {
     Route::get('/pergunta', function() {return View('forum.forumQuestion');});
 });
 
-Route::resource('cadastro', CadastroController::class);
+Route::get('/sobre', function () {return View('sobre');});
+Route::get('/contate-nos', function () {return View('contate-nos');});

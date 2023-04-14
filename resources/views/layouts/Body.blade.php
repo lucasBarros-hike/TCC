@@ -5,7 +5,7 @@
   <header class="header">
     <section class="flex">
       
-      <img src="{{ asset('images/volpe_white.png') }}" class="logo" >
+      <img src="{{ asset('images/volpe_white.png') }}" class="logo" id="logo">
       
       <form action="" method="post" class="busca-form">
 
@@ -49,8 +49,8 @@
       <a href="{{url('/')}}" class="active" ><i class="fas fa-home"></i><span>Menu</span></a>
       <a href="{{url('/materias')}}"><i class="fas fa-graduation-cap"></i><span>Materias</span></a>
       <a href="{{url('/forum')}}"><i class="fa-solid fa-comment"></i><span>Forum</span></a>
-      <a href="#"><i class="fas fa-chalkboard-user"></i><span>Sobre</span></a>
-      <a href="#"><i class="fas fa-headset"></i><span>Contate-nos</span></a>
+      <a href="{{url('/sobre')}}"><i class="fas fa-chalkboard-user"></i><span>Sobre</span></a>
+      <a href="{{url('/contate-nos')}}"><i class="fas fa-headset"></i><span>Contate-nos</span></a>
     </nav>
  </div>
 

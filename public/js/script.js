@@ -1,5 +1,5 @@
 let body = document.body;
-
+let logo = document.getElementById('logo');
 
 let searchForm = document.querySelector('.header .flex .busca-form');
 
@@ -48,12 +48,14 @@ let darkMode = localStorage.getItem('dark-mode');
 const enableDarkMode = () =>{
   toggleBtn.classList.replace('fa-sun', 'fa-moon');
   body.classList.add('dark');
+  logo.setAttribute('src', 'http://127.0.0.1:8000/images/dark_volpe.png')
   localStorage.setItem('dark-mode', 'enabled');
 }
 
 const disableDarkMode = () =>{
   toggleBtn.classList.replace('fa-moon', 'fa-sun');
   body.classList.remove('dark');
+  logo.setAttribute('src', 'http://127.0.0.1:8000/images/light_volpe.png')
   localStorage.setItem('dark-mode', 'disabled');
 }
 
