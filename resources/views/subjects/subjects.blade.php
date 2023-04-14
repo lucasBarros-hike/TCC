@@ -11,7 +11,7 @@
            <img src="images/thumb-1.png" alt="">
         </div>
         <h3 class="title">Programação web</h3>
-        <a href="materia-pweb.html" class="inline-btn">Entrar</a>
+        <a href="{{ route('subjectsChat') }}" class="inline-btn">Entrar</a>
      </div>
      <div class="box">
       <div class="thumb">

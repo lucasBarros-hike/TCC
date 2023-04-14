@@ -5,7 +5,7 @@
   <header class="header">
     <section class="flex">
       
-      <img src="{{ asset('images/volpe_white.png') }}" class="logo" id="logo">
+      <img src="{{ asset('images/light_volpe.png') }}" class="logo" id="logo">
       
       <form action="" method="post" class="busca-form">
 
