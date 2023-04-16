@@ -1,5 +1,9 @@
 @extends('layouts.Body')
 
+@section('title')
+Matérias
+@endsection
+
 @section('content')
 <section class="materia">
 

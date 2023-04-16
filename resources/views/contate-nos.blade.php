@@ -1,5 +1,9 @@
 @extends('layouts.Body')
 
+@section('title')
+Contato
+@endsection
+
 @section('content')
 <main class="home">
     <div class="principal">

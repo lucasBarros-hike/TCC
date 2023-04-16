@@ -1,5 +1,9 @@
 @extends('layouts.Html')
 
+@section('title')
+Login
+@endsection
+
 @section('standard')
 <div class="container">
         <form id="myForm" method="post" action="{{ route('login.login')}}" class="form small">

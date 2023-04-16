@@ -1,5 +1,9 @@
 @extends('layouts.Html')
 
+@section('title')
+Cadastro
+@endsection
+
 @section('standard')
 <div class="container">
         <form method="POST" id="myForm" class="form" action="{{ route('cadastro.store') }}">

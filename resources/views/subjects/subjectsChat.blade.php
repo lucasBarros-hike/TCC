@@ -1,5 +1,9 @@
 @extends('layouts.Body')
 
+@section('title')
+Postagens
+@endsection
+
 @section('content')
 <div class="materia-container">
         <div class="titulo">
