@@ -33,7 +33,7 @@ Matérias
       </div>
          <div class="box">
             <div class="thumb">
-               <img src="images/thumb-5.png" alt="">
+               <img src="images/thumb-9.png" alt="">
             </div>
                <h3 class="title">Programação mobile</h3>
                <a href="playlist.html" class="inline-btn">Entrar</a>
@@ -54,7 +54,7 @@ Matérias
          </div>
          <div class="box">
             <div class="thumb">
-               <img src="images/thumb-9.png" alt="">
+               <img src="images/thumb-5.png" alt="">
             </div>
                <h3 class="title">Segurança da informação</h3>
                <a href="playlist.html" class="inline-btn">Entrar</a>

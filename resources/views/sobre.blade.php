@@ -19,7 +19,7 @@ Sobre
 <div class="card-about">
   <div class="card">
     <h3 class="card-title">Missão</h3>
-    <p class="card-text">A Volpe se dedica a fornecer aos alunos da ETEC de desenvolvimento de sistemas uma plataforma educacional inovadora e de alta qualidade, para ajudá-los a desenvolver suas habilidades em programação e alcançar o sucesso acadêmico e profissional. Buscamos fornecer conteúdo preciso, confiável e relevante, promovendo um ambiente de aprendizado colaborativo e interativo, e ajudando a preparar nossos alunos para uma carreira bem-sucedida em tecnologia.</p>
+    <p class="card-text">Fornecer aos alunos da ETEC uma plataforma educacional inovadora e de alta qualidade, para ajudá-los a desenvolver suas habilidades em programação e alcançar o sucesso acadêmico e profissional. </p>
   </div>
   <div class="card">
     <h3 class="card-title">Visão</h3>
@@ -27,15 +27,11 @@ Sobre
   </div>
   <div class="card">
     <h3 class="card-title">Valores</h3>
-    <p class="card-text">Qualidade - Comprometemo-nos a fornecer um conteúdo de alta qualidade e recursos educacionais para garantir que os estudantes possam alcançar o seu melhor potencial.
-
-Inovação - Estamos sempre buscando novas e melhores maneiras de fornecer recursos educacionais de alta qualidade para nossos usuários, e buscamos inovar em nossos métodos de ensino.
-
-Responsabilidade - Comprometemo-nos a fornecer conteúdo educacional preciso e confiável para nossos usuários, e a manter uma comunicação transparente e eficaz com nossos alunos.
-
-Comunidade - Valorizamos o poder da comunidade em nosso site, promovendo a interação dos alunos entre si, e incentivando a colaboração e o compartilhamento de conhecimento entre os usuários.
-
-Excelência - Buscamos a excelência em tudo o que fazemos, desde a qualidade do nosso conteúdo até a experiência do usuário em nosso site.</p>
+    <p class="card-text">Qualidade<br/>
+                         Inovação<br/>
+                         Responsabilidade<br/> 
+                         Comunidade<br/>
+                         Excelência</p>
   </div>
 </div>
 
