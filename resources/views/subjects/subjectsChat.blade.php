@@ -10,11 +10,11 @@ Postagens
     <div class="chat-header">
       
       <div class="chat-perfil">
-      <a href="{{url('//materias')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a>
+      <a href="{{route('subjects')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a>
         <img src="../images/pic-1.jpg">
         <p>Programação Web</p>
       </div>
-      <div class="chat-options">
+      <div class="chat-options" style="display: none;">
         <a href="#">Postagens</a>
         <a href="#">Arquivos</a>
       </div>

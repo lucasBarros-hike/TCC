@@ -55,7 +55,7 @@ body.dark{
 }
 section{
     padding: 2rem;
-    max-width: 1400px;
+    
     margin: 0 auto;
     
 } 
@@ -425,7 +425,7 @@ section{
 }
 
 .home .principal .contact{
-    margin-bottom: 5rem;
+    
     margin-left: 2rem;
     background-color: var(--white);
     width: 90rem;
@@ -474,6 +474,47 @@ section{
 }
 
 /* fim da home */
+
+
+/* sobre */
+.card-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 4rem;
+  }
+  
+  .card {
+    width: 20%;
+    background-color: var(--white);
+    height: 6rem;
+    border-radius: .5rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+  .card-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-text {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    display: none;
+  }
+
+  .card:hover {
+    height: 100%;
+    
+  }
+  .card:hover .card-text{
+    display: block;
+  }
 
 
 /* pagina materia */
@@ -929,7 +970,7 @@ section{
     color: var(--black);
 }
 .forum .painel .painel-box select option{
-    color: var(--black);
+    background-color: var(--white);
 }
 .forum .painel .painel-box textarea{
     width: 100%;

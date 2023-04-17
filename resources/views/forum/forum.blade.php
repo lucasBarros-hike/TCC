@@ -19,10 +19,10 @@ Fórum
                 </div>
                 <label for="assunto">Escolha um assunto:</label>
                         <select id="assunto" class="assunto" name="assunto">
-                            <option value="opcao1">Opção 1</option>
-                            <option value="opcao2">Opção 2</option>
-                            <option value="opcao3">Opção 3</option>
-                            <option value="opcao4">Opção 4</option>
+                            <option value="opcao1">CSS</option>
+                            <option value="opcao2">Javascript</option>
+                            <option value="opcao3">Python</option>
+                            <option value="opcao4">PHP</option>
                         </select>
                  
               </form>
