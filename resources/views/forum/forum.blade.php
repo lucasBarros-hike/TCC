@@ -12,16 +12,21 @@ Fórum
               <div class="painel-box">
                 <form name="form" method="post">
                     <input type="hidden" id="commentid" name="commentid" value="0">
-                <!-- <div class="form-group">
-                  <label for="user">Nome:</label>
-                  <input type="text" class="form-control" name="name" required>
-                </div> -->
+                    
                 <div class="form-group">
                   <label for="comment">Escreva sua pergunta:</label>
                   <textarea class="form-control" rows="5" name="msg" required></textarea>
                 </div>
-                 <button type="submit" id="save" name="save" class="inline-btn">Enviar</button>
+                <label for="assunto">Escolha um assunto:</label>
+                        <select id="assunto" class="assunto" name="assunto">
+                            <option value="opcao1">Opção 1</option>
+                            <option value="opcao2">Opção 2</option>
+                            <option value="opcao3">Opção 3</option>
+                            <option value="opcao4">Opção 4</option>
+                        </select>
+                 
               </form>
+              <button type="submit" id="save" name="save" class="inline-btn">Enviar</button>
               </div>
             </div>
         </div>
@@ -165,4 +170,7 @@ Fórum
             </div>
         </div>
     </div>
+    @if(!isset($hideFooter) || $hideFooter === false)
+  @include('layouts.footer')
+@endif
 @endsection

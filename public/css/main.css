@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&family=Ubuntu:wght@400;500;700&display=swap');
 
 :root{
-    --cor-primaria: #ec6f61;
+    --cor-primaria: #e44938;
     --red: #e97568;
     --orange: #f39c12;
     --white: #fff;
@@ -403,6 +403,13 @@ section{
     color: var(--black);
     font-weight: bold;
 }
+.materia .view-more{      
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
 .credito-img{
     position: absolute;
     bottom: 0;
@@ -411,6 +418,59 @@ section{
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 12px;
     text-align: center;
+}
+
+.home .principal .contact-img img{
+    width: 60rem;
+}
+
+.home .principal .contact{
+    margin-bottom: 5rem;
+    margin-left: 2rem;
+    background-color: var(--white);
+    width: 90rem;
+    max-height: 52rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem 4.5rem 2.5rem;
+    
+    
+    border-radius: 2rem;
+    
+}
+.home .principal .contact h1{
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--black);
+    border-bottom: var(--border);
+    margin-bottom: 2rem;
+}
+.home .principal .contact .contact-form{
+    
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+.home .principal .contact .contact-form input{
+    width: 100%;
+    height: 4rem;
+    font-size: 1.8rem;
+    background-color: var(--light-bg);
+    color: var(--black);
+    border-radius: .5rem;
+    border-width: 0px 0px 2px 0px;
+    padding-left: 0.2rem;
+}
+
+.home .principal .contact .contact-form textarea{
+    width: 100%;
+    height: 15rem;
+    font-size: 1.8rem;
+    background-color: var(--light-bg);
+    color: var(--black);
+    border-radius: .5rem;
+    border-width: 0px 0px 2px 0px;
+    padding-left: 0.2rem;
 }
 
 /* fim da home */
@@ -499,6 +559,19 @@ section{
     object-fit: contain;
     margin-bottom: 1rem;
 }
+.chatbox .chat .chat-header .chat-perfil .chevron{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.chatbox .chat .chat-header .chat-perfil .chevron i{
+    color: var(--black);
+    font-size: 2.5rem;
+    padding: 1rem;
+}
+
 .chatbox .chat .chat-header .chat-perfil p{
     font-size: 1.8rem;
     padding-left: 1rem;
@@ -542,6 +615,19 @@ section{
     display: flex;
     padding: 2rem;
 }
+.chatbox .chat .chat-body .message .message-chat{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.chatbox .chat .chat-body .message .message-chat .name{
+    margin: 0rem 0rem 0.5rem 1rem;
+    font-size: 1.4rem;
+    color: var(--black);
+}
+
 .chatbox .chat .chat-body .message .img{
     align-self: flex-start;
     margin: 1rem 0 1rem 1rem;
@@ -552,18 +638,20 @@ section{
     display: flex;
     width: auto;
     max-width: 70rem;
+    min-width: 15rem;
     height: auto;
     max-height: 30rem;
     text-align: justify;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
     border-radius: 1rem;
     margin-left: 1rem;
 }
 .chatbox .chat .chat-body .message .message-text p{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--black);
+    padding: 0.5rem 0rem 1rem 0rem;
 }
 .chatbox .chat .chat-body .message .message-text .timestamp {
     margin-top: auto;
@@ -682,7 +770,70 @@ section{
     color: var(--black);
 }
 /* chat materia fim */
+/* enquete  */
 
+.chatbox .chat .chat-body .message .message-chat .enquete{
+    background-color: var(--light-bg);
+    padding: 2rem;
+    width: 30rem;
+    height: 40rem;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+.chatbox .chat .chat-body .message .message-chat .enquete label{
+    font-size: 1.4rem;
+    padding: 1rem;
+    color: var(--black);
+}
+.chatbox .chat .chat-body .message .message-chat .enquete .votar{
+    background-color: var(--cor-primaria);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-top: 2rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.chatbox .chat .chat-body .message .message-chat .enquete .votar:hover{
+    background-color: var(--black);
+}
+/* enquete fim */
+
+.chatbox .chat .chat-body .message .message-chat .message-atividade{
+    background-color: var(--light-bg);
+    padding: 0.5rem 0rem 1rem 1rem;
+    width: 25rem;
+    height: 100%;
+    border-radius: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+.chatbox .chat .chat-body .message .message-chat .message-atividade p{
+    font-size: 1.6rem;
+}
+.chatbox .chat .chat-body .message .message-chat .message-atividade .atividade-btn{
+    background-color: var(--cor-primaria);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: var(--white);
+    text-transform: capitalize;
+    cursor: pointer;
+    
+    margin-right: 1rem;
+    font-weight: bolder;
+}
+
+.chatbox .chat .chat-body .message .message-chat .message-atividade .atividade-btn:hover{
+    background-color: var(--black);
+}
 
 /* fim da materia */
 
@@ -773,6 +924,13 @@ section{
     border-radius: .5rem;
     border-width: 0px 0px 2px 0px;
 }
+.forum .painel .painel-box select{
+    background-color: transparent;
+    color: var(--black);
+}
+.forum .painel .painel-box select option{
+    color: var(--black);
+}
 .forum .painel .painel-box textarea{
     width: 100%;
     height: 15rem;
@@ -831,7 +989,7 @@ section{
     padding:2rem 2rem;
     color:var(--black);
     margin-top: 2.5rem;
-    z-index: 1000;
+    z-index: 500;
     /* padding-bottom: 9.5rem; */
  }
  

@@ -65,11 +65,11 @@ Matérias
             </div>
                <h3 class="title">Design digital</h3>
                <a href="playlist.html" class="inline-btn">Entrar</a>
-      </div>
-
-     
-
+            </div>
   </div>
-
+  
 </section>
+@if(!isset($hideFooter) || $hideFooter === false)
+  @include('layouts.footer')
+@endif
 @endsection

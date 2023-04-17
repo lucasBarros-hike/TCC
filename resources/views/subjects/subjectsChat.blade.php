@@ -8,7 +8,9 @@ Postagens
 <main class="chatbox">
   <section class="chat" id="pweb-section">
     <div class="chat-header">
+      
       <div class="chat-perfil">
+      <a href="{{url('//materias')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a>
         <img src="../images/pic-1.jpg">
         <p>Programação Web</p>
       </div>
@@ -22,36 +24,81 @@ Postagens
 
       <div class="message">
         <div class="img">
-          <img src="../images/pic-2.jpg" alt="Usuário 1">
+          <img src="../images/pic-5.jpg" alt="Usuário 1">
         </div>
+        <div class="message-chat">
+            <div class="name">
+              Jessica Rocha
+            </div>
         <div class="message-text">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic similique error inventore, temporibus enim omnis quas odio reprehenderit iste corporis! Veritatis reiciendis facere corrupti? Officia soluta numquam magni dolorem adipisci?</p>
           
+          <p>O que acham da materia?</p>
+            <div class="enquete">
+              <form action="#" method="post">
+                  <input type="radio" id="sabor1" name="sabor" style="background-color: red;" value="calabresa">
+                  <label for="sabor1">Muito dificil</label>
+                  <div class="bar"><span class="percent"></span></div>
+                  <br>
+                
+                  <input type="radio" id="sabor2" name="sabor" value="margherita">
+                  <label for="sabor2">Dificil</label>
+                  <div class="bar"><span class="percent"></span></div>
+                  <br>
+
+                  <input type="radio" id="sabor3" name="sabor" value="quatro-queijos">
+                  <label for="sabor3">Normal</label>
+                  <div class="bar"><span class="percent"></span></div>
+                  <br>
+
+                  <input type="radio" id="sabor4" name="sabor" value="portuguesa">
+                  <label for="sabor4">Facil</label>
+                  <div class="bar"><span class="percent"></span></div>
+                  
+                  <button type="submit" class="votar">Votar</button>
+                </form>
+                
+              </div>
+              <span class="timestamp">8:32 PM</span>
+            </div>
+            
+          </div>
         </div>
-      </div>
+      
       
 
       <div class="message">
         <div class="img">
-          <img src="../images/pic-2.jpg" alt="Usuário 1">
+          <img src="../images/pic-3.jpg" alt="Usuário 1">
         </div>
-        <div class="message-text">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum reprehenderit dicta nihil accusamus autem odio nemo animi aliquid suscipit id doloribus asperiores, sit esse placeat rem dolorum consequuntur harum quas?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolore similique excepturi maxime inventore, temporibus repellat, molestias minima vel aspernatur voluptas in illum. Esse molestias alias, dolores ex rem rerum.
-          </p>
-          <span class="timestamp">8:32 PM</span>
+        <div class="message-chat">
+            <div class="name">
+              João Santos
+            </div>
+          <div class="message-text">
+            <p>Segue abaixo uma atividade que elaborei</p>
+            <div class="message-atividade">
+              <p>Tabuada com Javascript</p>
+              <button type="submit" class="atividade-btn">Abrir atividade</button>
+            </div>
+            
+            <span class="timestamp">8:32 PM</span>
+          </div>
         </div>
       </div>
       
       
       <div class="message">
         <div class="img">
-          <img src="../images/pic-2.jpg" alt="Usuário 1">
+          <img src="../images/pic-7.jpg" alt="Usuário 1">
         </div>
-        
-        <div class="message-text">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum reprehenderit dicta nihil accusamus autem odio nemo animi aliquid suscipit id doloribus asperiores, sit esse placeat rem dolorum consequuntur harum quas?</p>
-          <span class="timestamp">8:32 PM</span>
+        <div class="message-chat">
+            <div class="name">
+              Amanda Santos
+            </div>
+            <div class="message-text">
+            <p>Boa noite</p>
+              <span class="timestamp">8:32 PM</span>
+            </div>
         </div>
       </div>
 
