@@ -38,11 +38,11 @@
         <img src="../images/pic-2.jpg" alt="" srcset="">
         <h3>Pessoa</h3>
         <span>Estudante</span>
-        <a href="perfil.html" class="btn">Ver perfil</a>
+        <!-- <a href="perfil.html" class="btn">Ver perfil</a>
       <div class="flex-btn">
           <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
           <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
-      </div>
+      </div> -->
       
     </div>
     <nav class="navbar">
@@ -71,9 +71,13 @@
 @yield('content')
 
   <!-- começo do footer -->
-  <footer class="footer">
+  <!-- <footer class="footer">
       &copy; Volpe @ 2023 by <span>Volpe</span> | all rights reserved! </br>
       <a href="https://storyset.com/people">People illustrations by Storyset</a>
-  </footer>
+  </footer> -->
+
+
 
 @endsection
+
+

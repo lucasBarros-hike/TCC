@@ -11,7 +11,7 @@ Menu
         <img src="./images/home.png" alt="" srcset="">
       </div>
       <div class="home-slogan">
-        <p>Aprenda a programar de forma fácil e divertida com o Volpe! Nossa plataforma educacional oferece recursos interativos e práticos para ajudá-lo a desenvolver suas habilidades de programação.</p>
+        <p>Aprenda a programar de forma fácil e divertida com a Volpe! Nossa plataforma educacional oferece recursos interativos e práticos para ajudá-lo a desenvolver suas habilidades de programação.</p>
       </div>
     </div>
 </main>
