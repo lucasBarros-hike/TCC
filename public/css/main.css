@@ -481,40 +481,35 @@ section{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     margin: 4rem;
   }
   
   .card {
     width: 20%;
     background-color: var(--white);
-    height: 6rem;
+    height: 100%;
     border-radius: .5rem;
     padding: 1rem;
-    cursor: pointer;
   }
   
   .card-title {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: var(--black);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
   
   .card-text {
     font-size: 1.5rem;
     line-height: 1.5;
-    display: none;
+    color: var(--black);
+    padding: 1rem;
+    text-align: justify;
   }
 
-  .card:hover {
-    height: 100%;
-    
-  }
-  .card:hover .card-text{
-    display: block;
-  }
 
 
 /* pagina materia */
