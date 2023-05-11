@@ -36,7 +36,8 @@
     </div>
     <div class="perfil">
         <img src="../images/pic-2.jpg" alt="" srcset="">
-        <h3>Pessoa</h3>
+        <a href="{{url('/perfil')}}"><h3>João</h3></a>
+        
         <span>Estudante</span>
         <!-- <a href="perfil.html" class="btn">Ver perfil</a>
       <div class="flex-btn">
