@@ -5,7 +5,7 @@ Fórum
 @endsection
 
 @section('content')
-<div class="forum-principal">
+<main class="forum-principal">
         <div class="forum">
 
             <div class="painel">
@@ -169,7 +169,7 @@ Fórum
                 </div>
             </div>
         </div>
-    </div>
+</main>
     @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')
 @endif

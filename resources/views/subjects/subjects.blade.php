@@ -5,6 +5,7 @@ Matérias
 @endsection
 
 @section('content')
+<main>
 <section class="materia">
 
   <h1 class="titulo">Materias</h1>
@@ -69,6 +70,7 @@ Matérias
   </div>
   
 </section>
+</main>
 @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')
 @endif

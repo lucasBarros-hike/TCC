@@ -6,8 +6,7 @@ Perfil
 
 @section('content')
 
-
-
+<main>
 <section class="user-profile">
 
    <h1 class="titulo">Perfil</h1>
@@ -60,7 +59,7 @@ Perfil
    </div>
 
 </section>
-
+</main>
 
 
 @if(!isset($hideFooter) || $hideFooter === false)

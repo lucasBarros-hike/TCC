@@ -31,18 +31,7 @@ Contato
       </div>
     </div>
 </main>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')
 @endif

@@ -36,6 +36,7 @@ Route::group(['prefix' => 'forum'], function () {
     Route::get('/pergunta', function() {return View('forum.forumQuestion');});
 });
 
+Route::get('/atividade', function () {return View('atividade');});
 Route::get('/sobre', function () {return View('sobre');});
 Route::get('/contate-nos', function () {return View('contate-nos');});
 Route::get('/perfil', function (){return View('perfil');});

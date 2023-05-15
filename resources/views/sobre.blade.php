@@ -5,8 +5,8 @@ Sobre
 @endsection
 
 @section('content')
-
-<main class="home">
+<main>
+<div class="home">
     <div class="principal">
       <div class="home-img">
         <img src="./images/about-us.png" alt="" srcset="">
@@ -15,7 +15,7 @@ Sobre
         <p>Aprenda a programar de forma fácil e divertida com a Volpe! Nossa plataforma educacional oferece recursos interativos e práticos para ajudá-lo a desenvolver suas habilidades de programação.</p>
       </div>
     </div>
-</main>
+</div>
 <div class="card-about">
   <div class="card">
     <h3 class="card-title">Missão</h3>
@@ -34,7 +34,7 @@ Sobre
                          Excelência</p>
   </div>
 </div>
-
+</main>
 
 @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')
