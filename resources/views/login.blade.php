@@ -37,11 +37,10 @@ Login
       </div> -->
 
       <main>
-        <h1>Login
-        <div class="icon">
-            <div id="toggle-btn" class="fas fa-sun"></div>
-          </div>
-        </h1>
+      <div class="form-header">
+                <h1>Login</h1>
+                <div id="toggle-btn" class="fas fa-sun"></div>
+        </div>
 
         <form action="">
 

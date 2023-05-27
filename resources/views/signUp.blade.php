@@ -39,13 +39,11 @@ Cadastro
           
      
       <main>
-        <h1>Criar conta
-        <div class="icon">
-            <div id="toggle-btn" class="fas fa-sun"></div>
-          </div>
-        </h1>
+        <div class="form-header">
+                <h1>Criar conta</h1>
+                <div id="toggle-btn" class="fas fa-sun"></div>
+        </div>
 
-        
         
         <form action="">
             <label for="name">
