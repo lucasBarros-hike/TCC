@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&family=Ubuntu:wght@400;500;700&display=swap');
+
+:root{
+    --cor-primaria: #e44938;
+    --red: #e97568;
+    --orange: #f39c12;
+    --white: #fff;
+    --black: #2c3e50;
+    --light-color: #888;
+    --light-bg: #eee;
+    --border: .1rem solid rgba(0,0,0,.2);
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0; padding: 0; border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+    font-weight: 500;
+    display: flex;
+}
+
+*::selection{
+    background-color: var(--cor-primaria);
+    color: #fff;
+}
+*::-webkit-scrollbar{
+    height: .5rem;
+    width: 1rem;
+}
+*::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: var(--cor-primaria);
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body.dark{
+    --white: #222;
+    --black: #fff;
+    --light-color: #aaa;
+    --light-bg: #333;
+    --border: .1rem solid rgba(255,255,255,.2);
+}
+
+
+
+.icon div {
+    font-size: 2rem;
+    color: var(--black);
+    cursor: pointer;
+    transition: transform 1s;
+}
+
+.icon div.morph {
+    transform: rotate(180deg);
+}
+
+
+
+
+/* botões */
+.btn,
+.option-btn,
+.delete-btn,
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+    border-radius: .5rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-top: 1rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bolder;
+}
+.btn,
+.option-btn,
+.delete-btn{
+    display: block;
+    width: 100%;
+}
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn{
+    display: inline-block;
+}
+.btn,
+.inline-btn{
+    background-color: var(--cor-primaria);
+}
+.option-btn,
+.inline-option-btn{
+    background-color: var(--orange);
+}
+.delete-btn,
+.inline-delete-btn{
+    background-color: var(--red);
+}
+.btn:hover,
+.option-btn:hover,
+.delete-btn:hover,
+.inline-btn:hover,
+.inline-option-btn:hover,
+.inline-delete-btn:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+.flex-btn{
+    display: flex;
+    gap: 1rem;
+}
+
+
+
+
+
+
+/* pagina login e cadastro começo */
+/* .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+.container .form{
+    background-color: var(--white);
+    width: 35rem;
+    max-height: 50rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem 4.5rem 2.5rem;
+    
+    border-radius: 2rem;
+}
+.container .form.small{
+    max-height: 37rem;
+}
+.container .form div{
+    margin: 0.5rem;
+}
+.container .form h2{
+    padding-bottom: 1.8rem;
+    text-align: center;
+    border-bottom: var(--border);
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    margin-bottom: 2rem;   
+}
+
+.container .form .input-box input{
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.8rem;
+    background-color: var(--light-bg);
+    color: var(--black);
+    border-radius: .5rem;
+    border-width: 0px 0px 2px 0px;
+}
+.container .form label{
+    font-size: 1.5rem;
+}
+*/
+/* fim login cadastro */
+main {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+main h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--cor-primaria);
+    font-size: 3rem;
+    text-align: center;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main form label {
+    display: flex;
+    flex-direction: column;
+}
+
+main form label span {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+}
+
+main form input {
+    background: var(--light-bg);
+    width: 30rem;
+    height: 4rem;
+    padding: 0 0.5rem;
+    margin-top: 1rem;
+    outline: none;
+    color: var(--black);
+    font-size: 1.6rem;
+    border: var(--border);
+    border-radius: 8px;
+}
+
+main form input[type="submit"] {
+    cursor: pointer;
+    width: 30rem;
+    margin-top: 2rem;
+    border: none;
+    background: var(--cor-primaria);
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: all .3s ease-in-out;
+}
+
+main form input[type="submit"]:hover {
+    background: var(--black);
+}
+
+section.images {
+    width: 50vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    
+}
+main form .link{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+main form .link p{
+    padding: 1rem 4.5rem 0 4.5rem;
+}
+main form .link a{
+    color: var(--cor-primaria);
+    
+} 
+
+
+section.images img {
+    width: 60rem;
+}
+
+section.images .circle {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #E8CBC0, #e44938);
+    clip-path: circle(40% at right 80%);
+    z-index: -1;
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+    section.images img {
+        width: 110%;
+    }
+
+    section.images .circle {
+        clip-path: circle(35% at right 80%);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    section.images {
+        display: none;
+        visibility: hidden;
+    }
+
+    main {
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    main h1 {
+        font-size: 2rem;
+    }
+
+    main .alternative span {
+        font-size: 0.8rem;
+    }
+
+    main form label span, main form input[type="submit"] {
+        font-size: 1rem;
+    }
+}

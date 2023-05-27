@@ -39,11 +39,11 @@
         <a href="{{url('/perfil')}}"><h3>João</h3></a>
         
         <span>Estudante</span>
-        <!-- <a href="perfil.html" class="btn">Ver perfil</a>
+        <!-- <a href="perfil.html" class="btn">Ver perfil</a> </div> -->
       <div class="flex-btn">
           <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
           <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
-      </div> -->
+      
       
     </div>
     <nav class="navbar">
