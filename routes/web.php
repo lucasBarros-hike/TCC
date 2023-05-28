@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\SubjectChatController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +25,13 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 Route::resource('cadastro', CadastroController::class);
 
 Route::group(['prefix' => 'materias'], function () {
-    Route::get('/', function () {return View('subjects.subjects');})->name('subjects');
+    Route::get('/', function () {
+        return view('subjects.subjects');
+    })->name('subjects');
 
-    Route::get('/Chat', function() {return View('subjects.subjectsChat');})->name('subjectsChat');
+    Route::get('/chat', function() {
+        return view('subjects.subjectsChat');
+    })->name('subjectsChat');
 });
 
 Route::group(['prefix' => 'forum'], function () {

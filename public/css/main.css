@@ -141,7 +141,7 @@ section{
 }
 .flex-btn{
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 /* fim botão */
 
@@ -224,7 +224,7 @@ section{
     transition: .2s linear;
 }
 .sidebar .perfil{
-    padding: 3rem 2rem;
+    padding: 3rem;
     text-align: center;
 }
 
@@ -248,8 +248,8 @@ section{
     background-color: var(--black);
 }
 .sidebar .perfil img{
-    height: 10rem;
-    width: 10rem;
+    height: 8.5rem;
+    width: 8.5rem;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: .5rem;

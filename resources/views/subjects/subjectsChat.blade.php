@@ -6,7 +6,7 @@ Postagens
 
 @section('content')
 <main class="chatbox">
-  <section class="chat" id="pweb-section">
+  <section class="chat" id="pweb-section" data-materia="programacao-web">
     <div class="chat-header">
       
       <div class="chat-perfil">
@@ -14,7 +14,7 @@ Postagens
         <img src="../images/pic-1.jpg">
         <p>Programação Web</p>
       </div>
-      <div class="chat-options" style="display: none;">
+      <div class="chat-options">
         <a href="#">Postagens</a>
         <a href="#">Arquivos</a>
       </div>
@@ -134,7 +134,7 @@ Postagens
     </div>
   </section>
 
-  <section class="chat" id="bd-section" style="display: none">
+  <section class="chat" id="bd-section" data-materia="banco-de-dados" style="display: none">
     <div class="chat-header">
       <div class="chat-perfil">
         <img src="img/pic-1.jpg">

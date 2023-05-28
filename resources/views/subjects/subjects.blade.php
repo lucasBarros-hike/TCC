@@ -16,14 +16,14 @@ Matérias
            <img src="images/thumb-1.png" alt="">
         </div>
         <h3 class="title">Programação web</h3>
-        <a href="{{ route('subjectsChat') }}" class="inline-btn">Entrar</a>
+        <button id="programacao-web-btn" class="inline-btn">Entrar</button>
      </div>
      <div class="box">
       <div class="thumb">
          <img src="images/thumb-8.png" alt="">
       </div>
          <h3 class="title">Banco de dados</h3>
-         <a href="playlist.html" class="inline-btn">Entrar</a>
+         <button id="banco-de-dados-btn" class="inline-btn">Entrar</button>
       </div>
       <div class="box">
          <div class="thumb">

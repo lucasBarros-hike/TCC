@@ -34,18 +34,25 @@
     <div class="close-sidebar">
       <i class="fas fa-times"></i>
     </div>
+
+
+    <!-- site sem estar logado -->
     <div class="perfil">
+        <img src="../images/user-3.jpg" alt="" srcset="">
+            <div class="flex-btn">
+                <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
+                <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
+            </div>
+    </div>
+
+    <!-- site logado -->
+    <!-- <div class="perfil">
         <img src="../images/pic-2.jpg" alt="" srcset="">
         <a href="{{url('/perfil')}}"><h3>João</h3></a>
-        
+  
         <span>Estudante</span>
-        <!-- <a href="perfil.html" class="btn">Ver perfil</a> </div> -->
-      <div class="flex-btn">
-          <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
-          <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
-      
-      
-    </div>
+    </div> -->
+
     <nav class="navbar">
       <a href="{{url('/')}}" class="active" ><i class="fas fa-home"></i><span>Menu</span></a>
       <a href="{{url('/materias')}}"><i class="fas fa-graduation-cap"></i><span>Materias</span></a>
