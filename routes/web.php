@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages;
-use App\Http\Controllers\CadastroController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SubjectChatController;
+use App\Http\Controllers\ForumPostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,31 +16,44 @@ use App\Http\Controllers\SubjectChatController;
 |
 */
 
-Route::get('/', function () {return view('home');});
+Route::get('/', function () {
+    $posts = App\Models\ForumPost::orderByDesc('created_at')
+                ->with('user')
+                ->get();
 
-// Route::get('/cadastro',[Pages::class, 'showSignUp']);
-Route::get('/login', [LoginController::class, 'show'])->name('login.show');
-Route::post('/login', [LoginController::class, 'login'])->name('login.login');
+    return view('home', ['posts' => $posts]);
+})->name('home');
 
-Route::resource('cadastro', CadastroController::class);
+//LOGIN E CADASTRO
+Route::get('/login', [AuthController::class, 'mostrarLogin'])->name('viewLogin');
+Route::post('/login', [AuthController::class, 'realizarLogin'])->name('realizarLogin'); 
+Route::get('/logout', [AuthController::class, 'realizarLogout'])->name('realizarLogout'); 
+Route::get('/cadastro', [AuthController::class, 'mostrarCadastro'])->name('viewCadastro');
+Route::post('/cadastro', [AuthController::class, 'realizarCadastro'])->name('realizarCadastro'); 
 
+//CHAT E MATERIAS
 Route::group(['prefix' => 'materias'], function () {
     Route::get('/', function () {
         return view('subjects.subjects');
-    })->name('subjects');
+    })->name('viewMaterias');
 
     Route::get('/chat', function() {
         return view('subjects.subjectsChat');
-    })->name('subjectsChat');
+    })->name('viewChat');
 });
 
+//FORUM 
 Route::group(['prefix' => 'forum'], function () {
-    Route::get('/', function() {return View('forum.forum');});
+    Route::get('/', [ForumPostController::class, 'mostrarForum'])->name('viewForum');
+    Route::post('/', [ForumPostController::class, 'publicarPergunta'])->name('publicarPergunta')->middleware('auth');
 
-    Route::get('/pergunta', function() {return View('forum.forumQuestion');});
+    Route::get('/editar/{post}',  [ForumPostController::class, 'editarPergunta'])->name('editarPergunta');
+    Route::post('/editar/{post}',  [ForumPostController::class, 'alterarPergunta'])->name('alterarPergunta');
+    
+    Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta');
 });
 
-Route::get('/atividade', function () {return View('atividade');});
-Route::get('/sobre', function () {return View('sobre');});
-Route::get('/contate-nos', function () {return View('contate-nos');});
-Route::get('/perfil', function (){return View('perfil');});
+Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');
+Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
+Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');
+Route::get('/perfil', function (){return View('perfil');})->name('viewPerfil');

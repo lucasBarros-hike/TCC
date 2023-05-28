@@ -10,7 +10,7 @@ Postagens
     <div class="chat-header">
       
       <div class="chat-perfil">
-      <a href="{{route('subjects')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a>
+      <a href="{{route('viewMaterias')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a>
         <img src="../images/pic-1.jpg">
         <p>Programação Web</p>
       </div>

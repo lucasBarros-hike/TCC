@@ -16,7 +16,7 @@ Matérias
            <img src="images/thumb-1.png" alt="">
         </div>
         <h3 class="title">Programação web</h3>
-        <button id="programacao-web-btn" class="inline-btn">Entrar</button>
+        <a href="{{ route('viewChat')}}" class="inline-btn">Entrar</a>
      </div>
      <div class="box">
       <div class="thumb">

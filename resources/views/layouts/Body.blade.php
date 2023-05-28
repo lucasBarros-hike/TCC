@@ -37,29 +37,32 @@
 
 
     <!-- site sem estar logado -->
+    @guest
     <div class="perfil">
-        <img src="../images/user-3.jpg" alt="" srcset="">
-            <div class="flex-btn">
-                <a href="{{url('/login')}}" target="_blank" class="option-btn">Login</a>
-                <a href="{{url('/cadastro')}}" target="_blank" class="option-btn">Cadastro</a>
-            </div>
+      <a href="{{route('realizarLogin')}}" target="_blank" class="option-btn">Fazer Login</a>
+      <a href="{{route('realizarCadastro')}}" target="_blank" class="option-btn">Cadastrar-se</a>
     </div>
+    @endguest
 
     <!-- site logado -->
-    <!-- <div class="perfil">
+    @auth
+    <div class="perfil">
         <img src="../images/pic-2.jpg" alt="" srcset="">
-        <a href="{{url('/perfil')}}"><h3>João</h3></a>
-  
+        <a href="{{url('/perfil')}}"><h3>{{ auth()->user()->name }}</h3></a>
         <span>Estudante</span>
-    </div> -->
+          <div class="flex-btn">
+            <a href="{{route('realizarLogout')}}" class="option-btn">Sair</a>
+          </div>
+    </div>
+    @endauth
 
     <nav class="navbar">
-      <a href="{{url('/')}}" class="active" ><i class="fas fa-home"></i><span>Menu</span></a>
-      <a href="{{url('/materias')}}"><i class="fas fa-graduation-cap"></i><span>Materias</span></a>
-      <a href="{{url('/forum')}}"><i class="fa-solid fa-comment"></i><span>Forum</span></a>
-      <a href="{{url('/atividade')}}"><i class="fa-solid fa-laptop"></i><span>Atividades</span></a>
-      <a href="{{url('/sobre')}}"><i class="fas fa-chalkboard-user"></i><span>Sobre</span></a>
-      <a href="{{url('/contate-nos')}}"><i class="fas fa-headset"></i><span>Contate-nos</span></a>
+      <a href="{{route('home')}}" class="active" ><i class="fas fa-home"></i><span>Menu</span></a>
+      <a href="{{route('viewMaterias')}}"><i class="fas fa-graduation-cap"></i><span>Materias</span></a>
+      <a href="{{route('viewForum')}}"><i class="fa-solid fa-comment"></i><span>Forum</span></a>
+      <a href="{{route('viewAtividade')}}"><i class="fa-solid fa-laptop"></i><span>Atividades</span></a>
+      <a href="{{route('viewSobre')}}"><i class="fas fa-chalkboard-user"></i><span>Sobre</span></a>
+      <a href="{{route('viewContate-nos')}}"><i class="fas fa-headset"></i><span>Contate-nos</span></a>
     </nav>
  </div>
 

@@ -74,21 +74,21 @@ toggleBtn.onclick = (e) =>{
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  var buttons = document.querySelectorAll(".inline-btn");
-  buttons.forEach(function(button) {
-    button.addEventListener("click", function(e) {
-      e.preventDefault();
-      var sectionId = this.getAttribute("data-section");
-      var sections = document.querySelectorAll(".chat-section");
-      sections.forEach(function(section) {
-        section.style.display = "none";
-      });
-      var targetSection = document.getElementById(sectionId);
-      targetSection.style.display = "block";
-    });
-  });
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//   var buttons = document.querySelectorAll(".inline-btn");
+//   buttons.forEach(function(button) {
+//     button.addEventListener("click", function(e) {
+//       e.preventDefault();
+//       var sectionId = this.getAttribute("data-section");
+//       var sections = document.querySelectorAll(".chat-section");
+//       sections.forEach(function(section) {
+//         section.style.display = "none";
+//       });
+//       var targetSection = document.getElementById(sectionId);
+//       targetSection.style.display = "block";
+//     });
+//   });
+// });
 
 
 
