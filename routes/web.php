@@ -53,6 +53,7 @@ Route::group(['prefix' => 'forum'], function () {
     Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta');
 });
 
+
 Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');
 Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
 Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');

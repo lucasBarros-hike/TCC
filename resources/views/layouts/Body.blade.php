@@ -4,29 +4,28 @@
 <!-- começo do header -->
   <header class="header">
     <section class="flex">
+
+
+    <div class="icons">
+        <div class="icon">
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="toggle-btn" class="fas fa-sun"></div>
+            
+        </div>
+        </div> 
       
-      <img src="{{ asset('images/light_volpe.png') }}" class="logo" id="logo">
       
       <form action="" method="post" class="busca-form">
 
         <input type="text" name="busca_box" placeholder="Buscar..." required maxlength="100">
 
         <button type="submit" class="fas fa-search" name="busca_box"></button>
-
+        
       </form>
 
-      <div class="icons">
-        <div class="icon">
-            <div id="search-btn" class="fas fa-search"></div>
-            <div id="toggle-btn" class="fas fa-sun"></div>
-            <div id="menu-btn" class="fas fa-bars"></div>
-        </div>
-
         
-      </div>
-      
-    
-    
+      <img src="{{ asset('images/light_volpe.png') }}" class="logo" id="logo"> 
     </section>
     <!-- começo do sidebar -->
   <div class="sidebar">

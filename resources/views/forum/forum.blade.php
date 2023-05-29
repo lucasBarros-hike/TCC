@@ -91,7 +91,7 @@ Fórum
                 </div>
                 <div class="subforum-column">
                     <h4><a href="#">Mateus Castro</a></h4>
-                    <p class="text">Como faço para tornar um formulário seguro?</p>
+                    <p class="text"><a href="#">Como faço para tornar um formulário seguro?</a></p>
                 </div>
                 <div class="subforum-column">
                     <span class="text">3 Respostas</span>

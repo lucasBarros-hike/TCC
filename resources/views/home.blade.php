@@ -91,11 +91,11 @@ Menu
     @endif
     @endforeach()
     </div>
-    <section class="materia">
+    
     <div class="view-more">
         <a href="{{route('viewForum')}}"  class="inline-option-btn">Ver mais</a>
     </div>
-    </section>
+    
 </div>
 </main>
 @if(!isset($hideFooter) || $hideFooter === false)

@@ -34,7 +34,7 @@ Cadastro
                 <input type="password" id="" name="">
             </label>
 
-            <input class="inline-btn" type="submit" value="Cadastrar" id="button">
+            <input class="option-btn" type="submit" value="Cadastrar" id="button">
 
             <div class="link">
               <p><a href="">Esqueci minha senha</a></p>

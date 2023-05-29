@@ -23,9 +23,9 @@ Login
                 <span>Senha</span>
                 <input type="password" id="password" name="password">
             </label>
-
-            <button class="inline-btn" type="submit" id="button">Entrar</button>
-
+            <div class="entrar">
+            <button class="btn" type="submit" id="button">Entrar</button>
+            </div>
             <div class="link">
               <p><a href="">Esqueci minha senha</a></p>
               <p>Não tem conta? <a href="{{route('viewCadastro')}}">Cadastrar</a></p>
