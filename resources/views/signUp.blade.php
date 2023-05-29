@@ -31,7 +31,7 @@ Cadastro
             </label>
             <label for="password">
                 <span>Repetir senha</span>
-                <input type="password" id="" name="">
+                <input type="password" id="password_repeat" name="password_repeat">
             </label>
 
             <input class="option-btn" type="submit" value="Cadastrar" id="button">

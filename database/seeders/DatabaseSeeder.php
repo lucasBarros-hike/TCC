@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\User;
+use App\Models\ChatPost;
 use App\Models\ForumPost;
 use App\Models\ForumAnswer;
 use Illuminate\Support\Facades\Hash;
@@ -56,6 +57,12 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user1->id,
             'question' => 'Como crio formulários?',
             'subject' => 'HTML'
+        ]);
+
+        ChatPost::create([
+            'user_id' => $user1->id,
+            'message' => 'Boa noite, pessoal',
+            'subject' => 'Programação Web'
         ]);
     }
 }
