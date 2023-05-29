@@ -16,15 +16,18 @@ class AuthController extends Controller
 
     public function realizarCadastro(Request $request)
     {
-         $dados = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|ends_with:@etec.sp.gov.br',
-            'password' => 'required'
-         ]);
-
-         User::create($dados);
-         return redirect('/login');
-
+        if($request->input('password') == $request->input('password_repeat'))
+        {
+            $dados = $request->validate([
+                'name' => 'required|string',
+                'email' => 'required|email|ends_with:@etec.sp.gov.br|unique:users',
+                'password' => 'required'
+             ]);
+    
+             User::create($dados);
+             return redirect('/login');
+        }
+        else {return redirect('/cadastro');}
     }
 
     public function mostrarLogin(): View

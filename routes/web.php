@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\ChatPostsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Pages;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\SubjectChatController;
+use App\Http\Controllers\ChatPostController;
 use App\Http\Controllers\ForumPostController;
 /*
 |--------------------------------------------------------------------------
@@ -33,13 +33,14 @@ Route::post('/cadastro', [AuthController::class, 'realizarCadastro'])->name('rea
 
 //CHAT E MATERIAS
 Route::group(['prefix' => 'materias'], function () {
-    Route::get('/', function () {
-        return view('subjects.subjects');
-    })->name('viewMaterias');
+    Route::get('/', [ChatPostController::class, 'mostrarMaterias'])->name('viewMaterias');
+    Route::get('/{subject}', [ChatPostController::class, 'mostrarChat'])->name('viewChat');
+    Route::post('/publicar', [ChatPostController::class, 'publicarMensagem'])->name('publicarMensagem')->middleware('auth');
 
-    Route::get('/chat', function() {
-        return view('subjects.subjectsChat');
-    })->name('viewChat');
+    Route::get('/editar/{post}',  [ChatPostController::class, 'editarMensagem'])->name('editarMensagem');
+    Route::post('/editar/{post}',  [ChatPostController::class, 'alterarMensagem'])->name('alterarMensagem');
+    
+    Route::delete('/apagar/{post}', [ChatPostController::class, 'excluirMensagem'])->name('excluirMensagem');
 });
 
 //FORUM 
@@ -52,7 +53,6 @@ Route::group(['prefix' => 'forum'], function () {
     
     Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta');
 });
-
 
 Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');
 Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');

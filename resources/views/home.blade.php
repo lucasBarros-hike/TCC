@@ -28,7 +28,8 @@ Menu
            <img src="images/thumb-1.png" alt="">
         </div>
         <h3 class="title">Programação web</h3>
-        <a href="{{ route('viewChat') }}" class="inline-btn">Entrar</a>
+        <a href="{{ route('viewChat', [$subject = 'programacao-web'])}}" class="inline-btn">Entrar</a>
+     
      </div>
      <div class="box">
       <div class="thumb">
@@ -46,7 +47,7 @@ Menu
           </div>
     </div>
          <div class="view-more">
-          <a href="{{route('viewMaterias')}}"  class="inline-option-btn">Ver mais</a>
+          <a href="{{ route('viewMaterias')}}"  class="inline-option-btn">Ver mais</a>
          </div>
 </section>
 <div class="forum-principal">
@@ -75,7 +76,7 @@ Menu
             <p class="text">{{ $post->question }}</p>
         </div>
         <div class="subforum-column">
-            <span class="text">4 Respostas</span>
+            <span class="text">0 Respostas</span>
         </div>
         <div class="subforum-column text-small">
             <b><a href="">Ultima postagem</a></b><br/>

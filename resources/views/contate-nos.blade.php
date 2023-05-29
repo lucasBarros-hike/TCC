@@ -10,7 +10,7 @@ Contato
       
     <div class="contact">
       <h1>Entre em Contato</h1>
-      <form class="contact-form" action="enviar-email.php" method="post">
+      <form class="contact-form" action="" method="get">
           <label for="nome">Nome:</label>
           
           <input type="text" id="nome" name="nome" required>
