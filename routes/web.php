@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatPostController;
 use App\Http\Controllers\ForumPostController;
+use App\Http\Controllers\ForumAnswerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,8 +44,9 @@ Route::group(['prefix' => 'materias'], function () {
     Route::delete('/apagar/{post}', [ChatPostController::class, 'excluirMensagem'])->name('excluirMensagem');
 });
 
-//FORUM 
+//FORUM
 Route::group(['prefix' => 'forum'], function () {
+    //PERGUNTAS
     Route::get('/', [ForumPostController::class, 'mostrarForum'])->name('viewForum');
     Route::post('/', [ForumPostController::class, 'publicarPergunta'])->name('publicarPergunta')->middleware('auth');
 
@@ -52,6 +54,9 @@ Route::group(['prefix' => 'forum'], function () {
     Route::post('/editar/{post}',  [ForumPostController::class, 'alterarPergunta'])->name('alterarPergunta');
     
     Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta');
+
+    //RESPOSTAS
+    Route::get('/respostas', [ForumAnswerController::class, 'mostrarRespostasForum'])->name('viewForumAnswers');
 });
 
 Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');

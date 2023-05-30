@@ -62,7 +62,8 @@ Fórum
                     <p class="text">{{ $post->question }}</p>
                 </div>
                 <div class="subforum-column">
-                    <span class="text">0 Respostas</span>
+                    <span class="text">0 Respostas</span><br/>
+                    <span><a href="{{ route('viewForumAnswers')}}">Responder</a></span>
                 </div>
                 <div class="subforum-column text-small">
                     <b><a href="">Ultima postagem</a></b><br/>
