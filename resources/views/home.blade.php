@@ -83,9 +83,8 @@ Menu
             <a href="">{{ $post->user->name }}</a> 
             <br>
             @php
-                date_default_timezone_set("America/Fortaleza");
                 $date = new DateTime($post->created_at);
-                echo $date->format('H:i - d/m/Y'); // 31.07.2012
+                echo $date->format('H:i - d/m/Y');
             @endphp
         </div>
     </div>

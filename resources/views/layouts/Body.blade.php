@@ -46,7 +46,7 @@
     <!-- site logado -->
     @auth
     <div class="perfil">
-        <img src="../images/pic-2.jpg" alt="" srcset="">
+        <img src="../images/pic-3.jpg" alt="" srcset="">
         <a href="{{url('/perfil')}}"><h3>{{ auth()->user()->name }}</h3></a>
         <span>Estudante</span>
           <div class="flex-btn">

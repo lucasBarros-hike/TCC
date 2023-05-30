@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user3 = User::create([
-            'name' => 'João Kleber',
-            'email' => 'joao.kleber14@etec.sp.gov.br',
+            'name' => 'João Batista',
+            'email' => 'joao.batista14@etec.sp.gov.br',
             'password' => '1234'
         ]);
 
@@ -60,8 +60,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         ChatPost::create([
-            'user_id' => $user1->id,
-            'message' => 'Boa noite, pessoal',
+            'user_id' => $user3->id,
+            'message' => 'Boa noite, pessoal. Estou com dificuldades em flexbox numa atividade. Alguém pode me ajudar?',
+            'subject' => 'Programação Web'
+        ]);
+
+        ChatPost::create([
+            'user_id' => $user2->id,
+            'message' => 'Boa noite, João. Se conseguir, poste sua dúvida no fórum, vamos responder por lá.',
             'subject' => 'Programação Web'
         ]);
     }

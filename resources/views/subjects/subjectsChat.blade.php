@@ -25,7 +25,7 @@ Postagens
       @foreach($messages as $message)
       <div class="message">
         <div class="img">
-          <img src="../images/pic-3.jpg" alt="Usuário 1">
+          <img src="../images/pic-{{$loop->iteration}}.jpg" alt="Usuário 1">
         </div>
         <div class="message-chat">
             <div class="name">
@@ -54,7 +54,9 @@ Postagens
         <div class="message">
             <button type="submit"><i class="fa fa-paperclip"></i></button>
             <input type="text" placeholder="Digite uma mensagem" name="message" id="message">
+            @isset(auth()->user()->id)
             <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
+            @endisset
             <input type="hidden" name="subject" id="subject" value="{{ $subject }}"/>
             <button type="submit"> <i class="fa fa-arrow-right"></i></button>
       </form>

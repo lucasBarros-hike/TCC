@@ -14,7 +14,7 @@ Perfil
    <div class="info">
 
       <div class="user">
-         <img src="images/pic-2.jpg" alt="">
+         <img src="images/pic-3.jpg" alt="">
          <h3>{{ auth()->user()->name }}</h3>
          <p>Estudante</p>
          <!-- <a href="update.html" class="inline-btn">update profile</a> -->
