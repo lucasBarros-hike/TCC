@@ -19,10 +19,12 @@ Fórum
                 <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
                 @endisset
                 <div class="form-group">
-                  <label for="question">Escreva sua pergunta:</label>
-                  <textarea class="form-control" rows="5" name="question" id="question" required></textarea>
+                    <label for="#">Escreva o assunto:</label>
+                    <input type="text" name="#">
+                    <label for="question">Escreva sua pergunta:</label>
+                    <textarea class="form-control" rows="5" name="question" id="question" required></textarea>
                 </div>
-                <label for="assunto">Escolha um assunto:</label>
+                <label for="assunto">Escolha uma linguagem:</label>
                     <select id="subject" class="assunto" name="subject">
                         <option value="HTML">HTML</option>
                         <option value="CSS">CSS</option>
@@ -79,6 +81,86 @@ Fórum
             @endforeach()
         </div>
 </main>
+
+<!-- respostas no aqui -->
+<main class="forum-main-answers">
+    <h1 class="titulo">respostas</h1>
+
+    <div class="forum-flex">
+        <div class="forum-question">
+            <div class="img">
+                <img src="../images/pic-1.jpg">
+            </div>
+            <div class="question">
+                <div class="name">
+                    <h3>Mauricio</h3>
+                </div>
+                <div class="assunto">
+                    <h3>como centralizar uma div</h3>
+                </div>
+                <div class="pergunta">
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sed optio illo eos debitis, corporis error vel, veritatis exercitationem dignissimos, sequi ab ad expedita fugiat fugit. Vitae aperiam amet veritatis.</p>
+                </div>
+                
+            </div>
+            <div class="forum-btn">
+                <button id="responder-btn" class="inline-btn">Responder</button>
+                </div>
+            </div>
+
+            <div id="resposta-box" class="user-answers" style="display: none">
+                <textarea class="form-control" rows="5" name="answers" id="answers" required></textarea>
+                <div class="forum-btn">
+                <button type="submit" class="inline-btn">Enviar</button>
+                </div>
+            </div>
+
+            <div class="forum-answers">
+                <div class="forum-user">
+                    <div class="img">
+                        <img src="../images/pic-2.jpg">
+                    </div>
+                    <div class="answers">
+                        <div class="name">
+                            <h3>Maria</h3>
+                        </div>
+                        <div class="assunto">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ullam consequuntur ab quis, voluptatum suscipit ipsa asperiores maiores beatae nulla voluptatem sunt quasi ex illum deleniti, rerum nemo. Aspernatur, nam?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-user">
+                    <div class="img">
+                        <img src="../images/pic-3.jpg">
+                    </div>
+                    <div class="answers">
+                        <div class="name">
+                            <h3>Eduardo</h3>
+                        </div>
+                        <div class="assunto">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ullam consequuntur ab quis, voluptatum suscipit ipsa asperiores maiores beatae nulla voluptatem sunt quasi ex illum deleniti, rerum nemo. Aspernatur, nam?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-user">
+                    <div class="img">
+                        <img src="../images/pic-4.jpg">
+                    </div>
+                    <div class="answers">
+                        <div class="name">
+                            <h3>Sei la</h3>
+                        </div>
+                        <div class="assunto">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ullam consequuntur ab quis, voluptatum suscipit ipsa asperiores maiores beatae nulla voluptatem sunt quasi ex illum deleniti, rerum nemo. Aspernatur, nam?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</main>
+<!-- fim das respostas -->
     @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')
 @endif

@@ -79,6 +79,21 @@ toggleBtn.onclick = (e) =>{
 }
 
 
+var caixaResposta = document.getElementById('resposta-box');
+var responderBtn = document.getElementById('responder-btn');
+
+responderBtn.addEventListener('click', function() {
+  if (caixaResposta.style.display === 'block') {
+    caixaResposta.style.display = 'none';
+  } else {
+    caixaResposta.style.display = 'block';
+  }
+});
+
+
+
+
+
 
 
 

@@ -99,15 +99,16 @@ section{
 .inline-option-btn,
 .inline-delete-btn{
     border-radius: .5rem;
-    padding: 1rem 3rem;
-    font-size: 1.8rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.6rem;
     color: var(--white);
     margin-top: 1rem;
     text-transform: capitalize;
     cursor: pointer;
     text-align: center;
-    font-weight: bolder;
+    font-weight: 550;
 }
+
 .btn,
 .option-btn,
 .delete-btn{
@@ -888,7 +889,10 @@ section{
     font-size: 1.8rem;
     color: var(--black);
 }
+
 .forum .painel .painel-box input{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     width: 100%;
     height: 4rem;
     font-size: 1.8rem;
@@ -897,6 +901,7 @@ section{
     border-radius: .5rem;
     border-width: 0px 0px 2px 0px;
 }
+
 .forum .painel .painel-box select{
     background-color: transparent;
     color: var(--black);
@@ -905,6 +910,7 @@ section{
     background-color: var(--white);
 }
 .forum .painel .painel-box textarea{
+    margin-top: 1rem;
     width: 100%;
     height: 15rem;
     font-size: 1.8rem;
@@ -915,6 +921,117 @@ section{
 }
 
 
+
+.forum-main-answers{
+    flex-direction: column;
+    padding: 2rem;
+    
+}
+.forum-main-answers .forum-flex{
+    margin: 0 auto;
+    width: 90%;
+}
+.forum-main-answers .forum-question{
+    display: flex;
+    max-height: 30rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: var(--white);
+
+}
+.forum-main-answers .forum-question .img img{
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    object-fit: contain;
+    margin: 1.5rem;
+}
+.forum-main-answers .forum-question .question{
+    padding: 1rem 0 0 0;
+    width: 100%;
+}
+.forum-main-answers .forum-question .question .name{
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+}
+.forum-main-answers .forum-question .question .assunto{
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    color: var(--black);
+}
+.forum-main-answers .forum-question .question .pergunta{
+    font-size: 1.5rem;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+}
+
+.forum-main-answers .user-answers{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+}
+.forum-main-answers .user-answers textarea{
+    background-color: var(--light-bg);
+    width: 100%;
+    color: var(--black);
+    border-radius: 0.5rem;
+    resize: none;
+    padding: 0.5rem;
+}
+.forum-btn{
+    display:flex;
+    align-self: flex-end;
+    justify-content: right;
+}
+.forum-btn button{
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 550;
+}
+
+.forum-main-answers .forum-answers{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+}
+.forum-main-answers .forum-answers .forum-user{
+    display: flex;
+    margin-left: 2rem;
+    
+    max-height: 30rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: var(--white);
+    margin-top: 2rem;
+}
+.forum-main-answers .forum-answers .img img{
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    object-fit: contain;
+    margin: 1.5rem;
+}
+.forum-main-answers .forum-answers .answers{
+    padding: 1rem 2rem 0 0;
+    width: 100%;
+}
+.forum-main-answers .forum-answers .answers .name{
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+}
+.forum-main-answers .forum-answers .answers .assunto{
+    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+    color: var(--black);
+}
 /* fim do forum */
 
 /* aqui é o footer */
@@ -1250,8 +1367,4 @@ section{
         width: 100%;
         padding: 10px;
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 7f7203121feb6b9796bf073806e847a7c1dc6675
 }  
