@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ForumAnswer;
 use App\Models\ForumPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,8 @@ class ForumPostController extends Controller
             $dados = $request->validate([
                 'user_id' => "integer|exists:users,id",
                 'question' => 'string',
-                'subject' => 'string'
+                'subject' => 'string',
+                'language' => 'string',
             ]);
 
             ForumPost::create($dados);

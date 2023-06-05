@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('question');
             $table->text('subject');
+            $table->text('language');
             $table->foreignId('user_id');
             $table->timestamps();
         });

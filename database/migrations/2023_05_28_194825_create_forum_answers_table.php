@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('forum_answers', function (Blueprint $table) {
             $table->id();
             $table->text('answer');
-            $table->foreignId('question_id');
+            $table->foreignId('post_id');
             $table->foreignId('user_id');
             $table->timestamps();
         });

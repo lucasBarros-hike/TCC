@@ -56,7 +56,8 @@ Route::group(['prefix' => 'forum'], function () {
     Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta');
 
     //RESPOSTAS
-    Route::get('/respostas', [ForumAnswerController::class, 'mostrarRespostasForum'])->name('viewForumAnswers');
+    Route::get('/{post_id}', [ForumAnswerController::class, 'mostrarRespostasForum'])->name('viewForumAnswers');
+    Route::post('/{post_id}', [ForumAnswerController::class, 'publicarResposta'])->name('publicarResposta')->middleware('auth');
 });
 
 Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');

@@ -5,78 +5,68 @@ Fórum
 @endsection
 
 @section('content')
-<main class="forum-principal">
-        <div class="forum">
+<main class="forum-main-answers">
+    <h1 class="titulo">Respostas</h1>
 
-            <div class="painel">
-              <div class="painel-box">
-                <form name="form" method="post" action={{ route('publicarPergunta')}}>
+    <div class="forum-flex">
+        <div class="forum-question">
+            <div class="img">
+                <img src="../images/pic-{{$post->user->id}}.jpg">
+            </div>
+            <div class="question">
+                <div class="name">
+                    <h3>{{ $post->user->name }}</h3>
+                </div>
+                <div class="assunto">
+                    <h3>{{ $post->subject }}</h3>
+                </div>
+                <div class="pergunta">
+                    <p> {{ $post->question }}</p>
+                </div>
+                
+            </div>
+            <div class="forum-btn">
+                <button id="responder-btn" class="inline-btn">Responder</button>
+                </div>
+        </div>
+
+        <div id="resposta-box" class="user-answers" style="display: none">
+            <form method="post" action="{{ route('publicarResposta', ['post_id' => $post->id])}}">
                 @csrf
                 @method('post')
-
-                <input type="hidden" id="commentid" name="commentid" value="0">
-                @isset(auth()->user()->id)
                 <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
-                @endisset
-                <div class="form-group">
-                  <label for="question">Escreva sua pergunta:</label>
-                  <textarea class="form-control" rows="5" name="question" id="question" required></textarea>
-                </div>
-                <label for="assunto">Escolha um assunto:</label>
-                    <select id="subject" class="assunto" name="subject">
-                        <option value="HTML">HTML</option>
-                        <option value="CSS">CSS</option>
-                        <option value="JavaScript">Javascript</option>
-                        <option value="PHP">PHP</option>
-                    </select>
-              <button type="submit" id="save" name="save" class="inline-btn">Enviar</button>
-              </form>
-              </div>
+                <input type="hidden" id="question_id" name="post_id" value="{{ $post->id }}">
+                <textarea class="form-control" rows="5" name="answer" id="answer" required></textarea>
+                <div class="forum-btn">
+                <button type="submit" class="inline-btn">Enviar</button>
+            </form>
             </div>
         </div>
 
-        <div class="subforum">
-            <div class="subforum-title">
-                <h1>Recentes</h1>
-            </div>
-            @foreach($posts as $post)
-            @if($loop->iteration <= 8)
-            <div class="subforum-row">
-                <div class="subforum-icon subforum-column">
-                    @if ($post->subject == 'HTML')
-                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
-
-                    @elseif ($post->subject == 'CSS')
-                    <i class="fa-brands fa-css3-alt" style="color:#1572B6 ;"></i>
-
-                    @elseif ($post->subject == 'JavaScript')
-                    <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
-
-                    @elseif ($post->subject == 'PHP')
-                    <i class="fa-brands fa-php" style="color: #4F5D95;"></i>
-
-                    @endif
+        <div class="forum-answers">
+            @foreach($answers as $answer)
+            <div class="forum-user">
+                <div class="img">
+                    <img src="../images/pic-{{$answer->user->id}}.jpg">
                 </div>
-                <div class="subforum-column">
-                    <h4><a href="#">{{ $post->user->name }}</a></h4>
-                    <p class="text">{{ $post->question }}</p>
-                </div>
-                <div class="subforum-column">
-                    <span class="text">0 Respostas</span>
-                </div>
-                <div class="subforum-column text-small">
-                    <b><a href="">Ultima postagem</a></b><br/>
-                    <a href="">{{ $post->user->name }}</a> 
-                    <br>
-                    @php
-                        $date = new DateTime($post->created_at);
-                        echo $date->format('H:i - d/m/Y');
-                    @endphp
+                <div class="answers">
+                    <div class="name">
+                        <h3>{{$answer->user->name}}</h3>
+                    </div>
+                    <div class="assunto">
+                        <p>{{ $answer->answer}}</p>
+                    </div>
+                    <div class="subforum-column text-small">
+                        @php
+                            $date = new DateTime($answer->created_at);
+                            echo $date->format('H:i - d/m/Y');
+                        @endphp
+                    </div>
                 </div>
             </div>
-            @endif
-            @endforeach()
+            @endforeach
         </div>
+    </div>
 </main>
     @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')

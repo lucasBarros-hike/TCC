@@ -11,7 +11,7 @@ Postagens
       
       <div class="chat-perfil">
       <a href="{{route('viewMaterias')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a>
-        <img src="../images/pic-1.jpg">
+        <img src="../images/pic-{{ auth()->user()->id }}.jpg">
         <p>Programação Web</p>
       </div>
       <div class="chat-options">
@@ -25,7 +25,7 @@ Postagens
       @foreach($messages as $message)
       <div class="message">
         <div class="img">
-          <img src="../images/pic-{{$loop->iteration}}.jpg" alt="Usuário 1">
+          <img src="../images/pic-{{$message->user->id}}.jpg" alt="Usuário 1">
         </div>
         <div class="message-chat">
             <div class="name">

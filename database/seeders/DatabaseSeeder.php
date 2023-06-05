@@ -37,26 +37,30 @@ class DatabaseSeeder extends Seeder
 
         ForumPost::create([
             'user_id' => $user1->id,
-            'question' => 'Como centralizo uma div?',
-            'subject' => 'CSS'
+            'question' => 'Estou com dificuldades para centralizar uma div em uma página web',
+            'subject' => 'Como centralizo uma div?',
+            'language' => 'CSS'
         ]);
 
         ForumPost::create([
             'user_id' => $user2->id,
-            'question' => 'Como crio uma função?',
-            'subject' => 'JavaScript'
+            'question' => 'Estou com dificuldades para desenvolver uma função que realize a multiplicação de dois números',
+            'subject' => 'Como crio uma função?',
+            'language' => 'JavaScript'
         ]);
 
         ForumPost::create([
             'user_id' => $user3->id,
-            'question' => 'Como programo em Laravel?',
-            'subject' => 'PHP'
+            'question' => 'Comecei a aprender Laravel e gostaria de algumas dicas sobre por onde estudar e recomendações de tutoriais.',
+            'subject' => 'Como programo em Laravel?',
+            'language' => 'PHP'
         ]);
 
         ForumPost::create([
             'user_id' => $user1->id,
-            'question' => 'Como crio formulários?',
-            'subject' => 'HTML'
+            'question' => 'Preciso criar um formulário com método get que pegue o nome, email e senha de um usuário, poderiam me ajudar? É para a aula de PWEB',
+            'subject' => 'Como crio formulários?',
+            'language' => 'HTML'
         ]);
 
         ChatPost::create([
