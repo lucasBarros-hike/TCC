@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->text('subject');
+            $table->text('banner_directory');
             $table->timestamps();
         });
     }

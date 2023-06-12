@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChatPostsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ChatPostController;
 use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\ForumAnswerController;
@@ -22,7 +23,9 @@ Route::get('/', function () {
                 ->with('user')
                 ->get();
 
-    return view('home', ['posts' => $posts]);
+    $subjects = App\Models\Subject::orderBy('created_at')->get();
+
+    return view('home', ['posts' => $posts, 'subjects' => $subjects]);
 })->name('home');
 
 //LOGIN E CADASTRO
@@ -34,9 +37,9 @@ Route::post('/cadastro', [AuthController::class, 'realizarCadastro'])->name('rea
 
 //CHAT E MATERIAS
 Route::group(['prefix' => 'materias'], function () {
-    Route::get('/', [ChatPostController::class, 'mostrarMaterias'])->name('viewMaterias');
-    Route::get('/{subject}', [ChatPostController::class, 'mostrarChat'])->name('viewChat');
-    Route::post('/publicar', [ChatPostController::class, 'publicarMensagem'])->name('publicarMensagem')->middleware('auth');
+    Route::get('/', [SubjectController::class, 'mostrarMaterias'])->name('viewMaterias');
+    Route::get('/{subject_id}', [ChatPostController::class, 'mostrarChat'])->name('viewChat');
+    Route::post('/{subject_id}', [ChatPostController::class, 'publicarMensagem'])->name('publicarMensagem')->middleware('auth');
 
     Route::get('/editar/{post}',  [ChatPostController::class, 'editarMensagem'])->name('editarMensagem');
     Route::post('/editar/{post}',  [ChatPostController::class, 'alterarMensagem'])->name('alterarMensagem');

@@ -83,7 +83,7 @@ Fórum
                     @endphp
                 </div>
             </div>
-            @endforeach()
+            @endforeach
         </div>
 </main>
 <!-- fim das respostas -->

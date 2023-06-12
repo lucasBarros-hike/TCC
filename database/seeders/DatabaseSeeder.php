@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Subject;
 use App\Models\User;
 use App\Models\ChatPost;
 use App\Models\ForumPost;
@@ -63,16 +64,31 @@ class DatabaseSeeder extends Seeder
             'language' => 'HTML'
         ]);
 
+        Subject::create([
+            'subject' => 'Programação Web',
+            'banner_directory' => 'programacao-web.png'
+        ]);
+
+        Subject::create([
+            'subject' => 'Banco De Dados',
+            'banner_directory' => 'banco-de-dados.png'
+        ]);
+
+        Subject::create([
+            'subject' => 'Programação Mobile',
+            'banner_directory' => 'programacao-mobile.png'
+        ]);
+
         ChatPost::create([
             'user_id' => $user3->id,
             'message' => 'Boa noite, pessoal. Estou com dificuldades em flexbox numa atividade. Alguém pode me ajudar?',
-            'subject' => 'Programação Web'
+            'subject_id' => '1'
         ]);
 
         ChatPost::create([
             'user_id' => $user2->id,
             'message' => 'Boa noite, João. Se conseguir, poste sua dúvida no fórum, vamos responder por lá.',
-            'subject' => 'Programação Web'
+            'subject_id' => '1'
         ]);
     }
 }

@@ -48,8 +48,9 @@ class ForumPostController extends Controller
 
     }
 
-    public function excluirPergunta()
+    public function excluirPergunta(ForumPost $post)
     {
-
+        $post->delete();
+        return redirect()->back();
     }
 }

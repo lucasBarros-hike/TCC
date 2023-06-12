@@ -27,14 +27,16 @@ Fórum
             </div>
             <div class="forum-btn">
                 <button id="responder-btn" class="inline-btn">Responder</button>
-                </div>
+            </div>
         </div>
 
         <div id="resposta-box" class="user-answers" style="display: none">
             <form method="post" action="{{ route('publicarResposta', ['post_id' => $post->id])}}">
                 @csrf
                 @method('post')
+                @auth
                 <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
+                @endauth
                 <input type="hidden" id="question_id" name="post_id" value="{{ $post->id }}">
                 <textarea class="form-control" rows="5" name="answer" id="answer" required></textarea>
                 <div class="forum-btn">

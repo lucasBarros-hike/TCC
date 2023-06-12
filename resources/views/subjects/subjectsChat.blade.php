@@ -10,9 +10,14 @@ Postagens
     <div class="chat-header">
       
       <div class="chat-perfil">
-      <a href="{{route('viewMaterias')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a>
+      <a href="{{route('viewMaterias')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a> 
+        @auth
         <img src="../images/pic-{{ auth()->user()->id }}.jpg">
-        <p>Programação Web</p>
+        @endauth
+        @guest
+        <img src="../images/user-3.jpg">
+        @endguest
+        <p>{{ $subject->subject}}</p>
       </div>
       <div class="chat-options">
         <a href="#">Postagens</a>
@@ -48,7 +53,7 @@ Postagens
       
     <div class="chat-footer">
         
-      <form method="post" action="{{ route('publicarMensagem')}}" class="message-box">
+      <form method="post" action="{{ route('publicarMensagem', ['subject_id' => $subject->id])}}" class="message-box">
       @csrf
       @method('post')
         <div class="message">
@@ -57,7 +62,7 @@ Postagens
             @isset(auth()->user()->id)
             <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
             @endisset
-            <input type="hidden" name="subject" id="subject" value="{{ $subject }}"/>
+            <input type="hidden" name="subject_id" id="subject_id" value="{{ $subject->id }}"/>
             <button type="submit"> <i class="fa fa-arrow-right"></i></button>
       </form>
       </div>

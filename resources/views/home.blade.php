@@ -23,32 +23,21 @@ Menu
   <h1 class="titulo">Materias</h1>
 
   <div class="box-container">
-     <div class="box">
-        <div class="thumb">
-           <img src="images/thumb-1.png" alt="">
-        </div>
-        <h3 class="title">Programação web</h3>
-        <a href="{{ route('viewChat', [$subject = 'programacao-web'])}}" class="inline-btn">Entrar</a>
-     
-     </div>
-     <div class="box">
-      <div class="thumb">
-         <img src="images/thumb-8.png" alt="">
-      </div>
-         <h3 class="title">Banco de dados</h3>
-         <a href="playlist.html" class="inline-btn">Entrar</a>
-      </div>
-      <div class="box">
-         <div class="thumb">
-            <img src="images/thumb-3.png" alt="">
-         </div>
-            <h3 class="title">Desenvolvimento de sistemas</h3>
-            <a href="playlist.html" class="inline-btn">Entrar</a>
-          </div>
+    @foreach($subjects as $subject)
+    @if($loop->iteration <= 4)
+    <div class="box">
+       <div class="thumb">
+          <img src="images/materias/{{$subject->banner_directory}}" alt="Imagem da matéria de {{$subject->subject}}">
+       </div>
+       <h3 class="title">{{$subject->subject}}</h3>
+       <a href="{{ route('viewChat', [$subject_id = "$subject->id"])}}" class="inline-btn">Entrar</a>
     </div>
-         <div class="view-more">
-          <a href="{{ route('viewMaterias')}}"  class="inline-option-btn">Ver mais</a>
-         </div>
+    @endif
+    @endforeach
+  </div>
+  <div class="view-more">
+  <a href="{{ route('viewMaterias')}}"  class="inline-option-btn">Ver mais</a>
+  </div>
 </section>
 <div class="forum-principal">
 <h1 class="titulo">Forum</h1>
@@ -57,31 +46,39 @@ Menu
     @if($loop->iteration <= 8)
     <div class="subforum-row">
         <div class="subforum-icon subforum-column">
-            @if ($post->subject == 'HTML')
+            @if ($post->language == 'HTML')
             <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
 
-            @elseif ($post->subject == 'CSS')
+            @elseif ($post->language == 'CSS')
             <i class="fa-brands fa-css3-alt" style="color:#1572B6 ;"></i>
 
-            @elseif ($post->subject == 'JavaScript')
+            @elseif ($post->language == 'JavaScript')
             <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
 
-            @elseif ($post->subject == 'PHP')
+            @elseif ($post->language == 'PHP')
             <i class="fa-brands fa-php" style="color: #4F5D95;"></i>
 
             @endif
         </div>
         <div class="subforum-column">
             <h4><a href="#">{{ $post->user->name }}</a></h4>
-            <p class="text">{{ $post->question }}</p>
+            <p class="text">{{ $post->subject }}</p>
         </div>
         <div class="subforum-column">
-            <span class="text">0 Respostas</span>
+            <span class="text">
+                @php 
+                    $answers = App\Models\ForumAnswer::where('post_id', '=', $post->id)->count();
+                    if($answers == 1){
+                        echo $answers . " Resposta";
+                    }
+                    else{
+                        echo $answers . " Respostas";
+                    }
+                @endphp
+            </span><br/>
+            <span><a href="{{ route('viewForumAnswers', ['post_id' => $post->id])}}">Responder</a></span>
         </div>
         <div class="subforum-column text-small">
-            <b><a href="">Ultima postagem</a></b><br/>
-            <a href="">{{ $post->user->name }}</a> 
-            <br>
             @php
                 $date = new DateTime($post->created_at);
                 echo $date->format('H:i - d/m/Y');
@@ -89,7 +86,7 @@ Menu
         </div>
     </div>
     @endif
-    @endforeach()
+    @endforeach
     </div>
     
     <div class="view-more">
