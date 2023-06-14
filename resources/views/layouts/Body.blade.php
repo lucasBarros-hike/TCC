@@ -16,9 +16,12 @@
         </div> 
       
       
-      <form action="" method="post" class="busca-form">
+      <form action="{{ route('pesquisar', ['filter' => 'forum'])}}" method="post" class="busca-form">
+        @csrf
+        
+        <!--CRIAR O CHECK BOX PARA FILTRAGEM DE PESQUISA AQUI-->
 
-        <input type="text" name="busca_box" placeholder="Buscar..." required maxlength="100">
+        <input type="text" name="search" id="search" placeholder="Buscar..." required maxlength="100">
 
         <button type="submit" class="fas fa-search" name="busca_box"></button>
         

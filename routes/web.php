@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChatPostsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ChatPostController;
 use App\Http\Controllers\ForumPostController;
@@ -67,3 +68,5 @@ Route::get('/atividade', function () {return View('atividade');})->name('viewAti
 Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
 Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');
 Route::get('/perfil', function (){return View('perfil');})->name('viewPerfil');
+
+Route::post('/pesquisa/{filter}', [SearchController::class, 'pesquisar'])->name('pesquisar');
