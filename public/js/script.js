@@ -93,10 +93,30 @@ responderBtn.addEventListener('click', function() {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  var optionsBox = document.getElementById('options-box');
+  var ellipsisBtn = document.getElementById('ellipsis-btn');
+
+  ellipsisBtn.addEventListener('click', function() {
+      if (optionsBox.style.display === 'block') {
+          optionsBox.style.display = 'none';
+      } else {
+          optionsBox.style.display = 'block';
+      }
+  });
+});
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  var optionsQuestionBox = document.getElementById('options-question-box');
+  var ellipsisQuestionBtn = document.getElementById('ellipsis-question-btn');
 
-
-
-
+  ellipsisQuestionBtn.addEventListener('click', function() {
+      if (optionsQuestionBox.style.display === 'block') {
+          optionsQuestionBox.style.display = 'none';
+      } else {
+          optionsQuestionBox.style.display = 'block';
+      }
+  });
+});
 

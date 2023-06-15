@@ -983,11 +983,7 @@ section{
     resize: none;
     padding: 0.5rem;
 }
-.forum-btn{
-    display:flex;
-    align-self: flex-end;
-    justify-content: right;
-}
+
 .forum-btn button{
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
@@ -1003,7 +999,7 @@ section{
 .forum-main-answers .forum-answers .forum-user{
     display: flex;
     margin-left: 2rem;
-    
+    width: 145rem;
     max-height: 30rem;
     border-radius: 0.5rem;
     padding: 1rem;
@@ -1030,6 +1026,63 @@ section{
 .forum-main-answers .forum-answers .answers .assunto{
     margin-bottom: 0.2rem;
     font-size: 1.5rem;
+    color: var(--black);
+}
+
+.forum-btn{
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    
+}
+.option{
+    position: relative;
+    display: flex;
+    align-items: start;
+    top: 0;
+    left: 0;
+    padding: 0.5rem;
+    
+}
+.options-box{
+    border: var(--border);
+    background-color: var(--white);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+}
+.options-box ul{
+    list-style: none;
+}
+.option .options-box ul li{
+    border-bottom: var(--border);
+    padding: 1rem;
+    cursor: pointer;
+}
+.option .options-box ul li:hover{
+    background-color: var(--light-bg);
+}
+.option .options-box ul li a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+
+.option button{
+    background: none;
+    color: var(--black);
+}
+
+.like{
+    bottom: 0;
+    left: 0;
+    
+}
+.like button{
+    border: none;
+    background: none;
     color: var(--black);
 }
 /* fim do forum */
@@ -1249,6 +1302,17 @@ section{
         object-fit: cover;
         margin-bottom: .5rem;
     }
+    .forum-main-answers .forum-answers .forum-user{
+        display: flex;
+        margin-left: 2rem;
+        width: 105rem;
+        max-height: 30rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        gap: 1rem;
+        background-color: var(--white);
+        margin-top: 2rem;
+    }
 
 }  
 @media (max-width:991px){  
@@ -1289,6 +1353,18 @@ section{
         border-radius: .5rem;
         padding: 1rem;
       }
+      
+.forum-main-answers .forum-answers .forum-user{
+    display: flex;
+    margin-left: 2rem;
+    width: 95rem;
+    max-height: 30rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: var(--white);
+    margin-top: 2rem;
+}
      
   
 }  
@@ -1336,6 +1412,17 @@ section{
         padding: 1rem;
         margin: 2rem;
       }
+      .forum-main-answers .forum-answers .forum-user{
+        display: flex;
+        margin-left: 2rem;
+        width: 72rem;
+        max-height: 30rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        gap: 1rem;
+        background-color: var(--white);
+        margin-top: 2rem;
+    }
     
     
 }  
@@ -1366,5 +1453,16 @@ section{
         margin: 0 auto;
         width: 100%;
         padding: 10px;
+    }
+    .forum-main-answers .forum-answers .forum-user{
+        display: flex;
+        margin-left: 2rem;
+        width: 52rem;
+        max-height: 30rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        gap: 1rem;
+        background-color: var(--white);
+        margin-top: 2rem;
     }
 }  

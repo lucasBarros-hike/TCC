@@ -25,9 +25,22 @@ Fórum
                 </div>
                 
             </div>
+            
             <div class="forum-btn">
-                <button id="responder-btn" class="inline-btn">Responder</button>
-            </div>
+                    <div class="option">
+                        <div id="options-question-box" class="options-box" style="display: none;">
+                            <ul>
+                                <li><a href="#">Editar</a></li>
+                                <li><a href="#">Excluir</a></li>
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
+                        </div>
+                        <button id="ellipsis-question-btn"><i class="fas fa-ellipsis-vertical"></i></button>
+                        
+                    </div>
+                    <button id="responder-btn" class="inline-btn">Responder</button>
+                
+                </div>
         </div>
 
         <div id="resposta-box" class="user-answers" style="display: none">
@@ -39,6 +52,7 @@ Fórum
                 @endauth
                 <input type="hidden" id="question_id" name="post_id" value="{{ $post->id }}">
                 <textarea class="form-control" rows="5" name="answer" id="answer" required></textarea>
+                
                 <div class="forum-btn">
                 <button type="submit" class="inline-btn">Enviar</button>
             </form>
@@ -63,9 +77,30 @@ Fórum
                             $date = new DateTime($answer->created_at);
                             echo $date->format('H:i - d/m/Y');
                         @endphp
+                        
                     </div>
                 </div>
+                        <div class="forum-btn">
+                            <div class="option">
+                                <div id="options-box" class="options-box" style="display: none;">
+                                    <ul>
+                                        <li><a href="#">Editar</a></li>
+                                        <li><a href="#">Excluir</a></li>
+                                        <li><a href="#">Denunciar</a></li>
+                                    </ul>
+                                </div>
+                            <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
+                            </div>
+                        
+                            <div class="like">
+                                <button><i class="fa-regular fa-heart"></i></button>
+                                <!-- coração quando clicado:
+                                <i class="fa-solid fa-heart"></i> -->
+                            </div>
+                        </div>
+                       
             </div>
+           
             @endforeach
         </div>
     </div>
@@ -74,3 +109,4 @@ Fórum
   @include('layouts.footer')
 @endif
 @endsection
+
