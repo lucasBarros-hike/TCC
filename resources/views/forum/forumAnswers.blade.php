@@ -97,8 +97,7 @@ Fórum
                                 <!-- coração quando clicado:
                                 <i class="fa-solid fa-heart"></i> -->
                             </div>
-                        </div>
-                       
+                        </div>       
             </div>
            
             @endforeach

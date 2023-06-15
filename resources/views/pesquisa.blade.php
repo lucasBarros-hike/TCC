@@ -6,6 +6,7 @@
 
 @section('content')
 
+<main>
 @if ($filter == 'usuarios')
   @foreach($results as $user)
   <ul>
@@ -29,7 +30,7 @@
   </ul>
   @endforeach
 @endif
-
+</main>
 @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')
 @endif

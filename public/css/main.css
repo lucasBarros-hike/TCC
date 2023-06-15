@@ -999,7 +999,7 @@ section{
 .forum-main-answers .forum-answers .forum-user{
     display: flex;
     margin-left: 2rem;
-    width: 145rem;
+    width: 95%;
     max-height: 30rem;
     border-radius: 0.5rem;
     padding: 1rem;
@@ -1133,14 +1133,14 @@ section{
     margin-bottom: 2rem;
     padding: 1rem;
  }
- 
- .user-profile .info .user img{
+ .user-profile .info .user .perfil-header img{
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
  }
+
  
  .user-profile .info .user h3{
     font-size: 2rem;
@@ -1302,7 +1302,7 @@ section{
         object-fit: cover;
         margin-bottom: .5rem;
     }
-    .forum-main-answers .forum-answers .forum-user{
+    /* .forum-main-answers .forum-answers .forum-user{
         display: flex;
         margin-left: 2rem;
         width: 105rem;
@@ -1312,7 +1312,7 @@ section{
         gap: 1rem;
         background-color: var(--white);
         margin-top: 2rem;
-    }
+    } */
 
 }  
 @media (max-width:991px){  
@@ -1354,7 +1354,7 @@ section{
         padding: 1rem;
       }
       
-.forum-main-answers .forum-answers .forum-user{
+/* .forum-main-answers .forum-answers .forum-user{
     display: flex;
     margin-left: 2rem;
     width: 95rem;
@@ -1364,7 +1364,7 @@ section{
     gap: 1rem;
     background-color: var(--white);
     margin-top: 2rem;
-}
+} */
      
   
 }  
@@ -1412,17 +1412,17 @@ section{
         padding: 1rem;
         margin: 2rem;
       }
-      .forum-main-answers .forum-answers .forum-user{
+      /* .forum-main-answers .forum-answers .forum-user{
         display: flex;
         margin-left: 2rem;
-        width: 72rem;
+        width: 95%;
         max-height: 30rem;
         border-radius: 0.5rem;
         padding: 1rem;
         gap: 1rem;
         background-color: var(--white);
         margin-top: 2rem;
-    }
+    } */
     
     
 }  
@@ -1454,7 +1454,7 @@ section{
         width: 100%;
         padding: 10px;
     }
-    .forum-main-answers .forum-answers .forum-user{
+    /* .forum-main-answers .forum-answers .forum-user{
         display: flex;
         margin-left: 2rem;
         width: 52rem;
@@ -1464,5 +1464,5 @@ section{
         gap: 1rem;
         background-color: var(--white);
         margin-top: 2rem;
-    }
+    } */
 }  
