@@ -11,15 +11,38 @@ Perfil
 
    <h1 class="titulo">Perfil</h1>
 
-   <div class="info">
-      
+   <div class="info">    
          <div class="user">
+
+            <div class="user-pfp">
+               
             <img src="images/pic-3.jpg" alt="">
-            
             <h3>{{ auth()->user()->name }}</h3>
-            
             <p>Estudante</p>
             <!-- <a href="update.html" class="inline-btn">update profile</a> -->
+            </div>
+            
+            <div class="user-pfp">
+               <div class="flex">
+               <i class="fa-solid fa-ranking-star"></i>
+                  <div>
+                     <span>30</span>
+                     <p>Pontuação</p>
+                  </div>
+               </div>
+               <a href="#" class="inline-btn">Ver Classificação</a>
+            </div>
+
+            <div class="user-pfp">
+               <div class="flex">
+               <i class="fa-solid fa-ranking-star"></i>
+                  <div>
+                     <span>30</span>
+                     <p>Pontuação</p>
+                  </div>
+               </div>
+               <a href="#" class="inline-btn">Adicionar +</a>
+            </div>
          </div>
          
 
