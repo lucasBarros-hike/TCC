@@ -119,4 +119,33 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
+function toggleCard(cardId) {
+  var card = document.getElementById(cardId);
+  var allCards = document.getElementsByClassName("card-content");
+
+  for (var i = 0; i < allCards.length; i++) {
+     if (allCards[i].id === cardId) {
+        if (card.style.display === 'none') {
+           card.style.display = 'block';
+        } else {
+           card.style.display = 'none';
+        }
+     } else {
+        allCards[i].style.display = 'none';
+     }
+  }
+}
+
+function toggleComments(contentType) {
+  var questionsContent = document.getElementById('questions');
+  var answersContent = document.getElementById('answers');
+
+  if (contentType === 'questions') {
+     questionsContent.style.display = 'block';
+     answersContent.style.display = 'none';
+  } else if (contentType === 'answers') {
+     questionsContent.style.display = 'none';
+     answersContent.style.display = 'block';
+  }
+}
 

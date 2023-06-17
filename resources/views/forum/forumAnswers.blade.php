@@ -72,7 +72,7 @@ Fórum
                     <div class="assunto">
                         <p>{{ $answer->answer}}</p>
                     </div>
-                    <div class="subforum-column text-small">
+                    <div class=" text-small">
                         @php
                             $date = new DateTime($answer->created_at);
                             echo $date->format('H:i - d/m/Y');
@@ -93,11 +93,12 @@ Fórum
                             </div>
                         
                             <div class="like">
-                                <button><i class="fa-regular fa-heart"></i></button>
+                                
+                                <button><p>1</p><i class="fa-regular fa-heart"></i></button>
                                 <!-- coração quando clicado:
                                 <i class="fa-solid fa-heart"></i> -->
                             </div>
-                        </div>       
+                        </div>
             </div>
            
             @endforeach
