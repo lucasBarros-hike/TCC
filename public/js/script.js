@@ -90,6 +90,17 @@ responderBtn.addEventListener('click', function() {
   }
 });
 
+var caixaEdita = document.getElementById('edita-box');
+var editarBtn = document.getElementById('editar-btn');
+
+editarBtn.addEventListener('click', function() {
+  if (caixaEdita.style.display === 'block') {
+    caixaEdita.style.display = 'none';
+  } else {
+    caixaEdita.style.display = 'block';
+  }
+});
+
 
 
 

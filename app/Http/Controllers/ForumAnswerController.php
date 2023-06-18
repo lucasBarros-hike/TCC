@@ -39,5 +39,22 @@ class ForumAnswerController extends Controller
             }
         }
         else {return redirect('/');}
-    } 
+    }
+
+    public function editarResposta(ForumPost $post_id, ForumAnswer $answer)
+    {
+        $dados = request()->validate([
+            'answer' => "string"
+        ]);
+
+        $answer->update($dados);
+
+        return redirect()->back();
+    }
+
+    public function excluirResposta(ForumPost $post_id, ForumAnswer $answer)
+    {
+        $answer->delete();
+        return redirect()->back();
+    }
 }

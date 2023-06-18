@@ -50,7 +50,7 @@
     @auth
     <div class="perfil">
         <img src="../images/pic-{{ auth()->user()->id }}.jpg" alt="" srcset="">
-        <a href="{{url('/perfil')}}"><h3>{{ auth()->user()->name }}</h3></a>
+        <a href="{{route('viewProfile', ["profile" => auth()->user()->id])}}"><h3>{{ auth()->user()->name }}</h3></a>
         <span>Estudante</span>
           <div class="flex-btn">
             <a href="{{route('realizarLogout')}}" class="option-btn">Sair</a>

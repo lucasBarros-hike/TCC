@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChatPostsController;
+use App\Models\Likes;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SearchController;
@@ -8,6 +9,8 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ChatPostController;
 use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\ForumAnswerController;
+use App\Http\Controllers\LikesController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,11 +65,29 @@ Route::group(['prefix' => 'forum'], function () {
     //RESPOSTAS
     Route::get('/{post_id}', [ForumAnswerController::class, 'mostrarRespostasForum'])->name('viewForumAnswers');
     Route::post('/{post_id}', [ForumAnswerController::class, 'publicarResposta'])->name('publicarResposta')->middleware('auth');
+    
+    Route::post('/{post_id}/curtir/{answer_id}', [LikesController::class, 'curtirResposta'])->name('curtirResposta')->middleware('auth');
+    Route::post('/{post_id}/descurtir/{answer_id}/{user_id}', [LikesController::class, 'descurtirResposta'])->name('descurtirResposta')->middleware('auth');
+
+    Route::put('/{post_id}/editar/{answer}',[ForumAnswerController::class, 'editarResposta'])->name('editarResposta')->middleware('auth');
+
+    Route::delete('/{post_id}/excluir/{answer}', [ForumAnswerController::class, 'excluirResposta'])->name('excluirResposta')->middleware('auth');
 });
 
 Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');
 Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
 Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');
-Route::get('/perfil', function (){return View('perfil');})->name('viewPerfil');
+
+Route::get('/perfil/{profile}', [ProfileController::class, 'mostrarPerfil'])->name('viewProfile');
 
 Route::post('/pesquisa/{filter}', [SearchController::class, 'pesquisar'])->name('pesquisar');
+
+Route::fallback(function () {
+    $posts = App\Models\ForumPost::orderByDesc('created_at')
+                ->with('user')
+                ->get();
+
+    $subjects = App\Models\Subject::orderBy('created_at')->get();
+
+    return view('home', ['posts' => $posts, 'subjects' => $subjects]);
+});

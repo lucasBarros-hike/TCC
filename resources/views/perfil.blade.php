@@ -16,8 +16,8 @@ Perfil
 
             <div class="user-pfp">
                
-            <img src="images/pic-3.jpg" alt="">
-            <h3>{{ auth()->user()->name }}</h3>
+            <img src="../images/pic-{{ $user->id}}.jpg" alt="">
+            <h3>{{$user->name}}</h3>
             <p>Estudante</p>
             <!-- <a href="update.html" class="inline-btn">update profile</a> -->
             </div>
@@ -112,7 +112,7 @@ Perfil
       <div class="flex">
          <i class="fas fa-heart"></i>
          <div>
-            <span>33</span>
+            <span>{{ $likes->count() }}</span>
             <p>Curtidos</p>
          </div>
       </div>
@@ -124,7 +124,7 @@ Perfil
       <div class="flex">
          <i class="fas fa-comment"></i>
          <div>
-            <span>12</span>
+            <span>{{ $posts->count() + $answers->count() }}</span>
             <p>Comentários</p>
          </div>
       </div>
@@ -133,82 +133,35 @@ Perfil
 </div>
 </section>
 <section class="user-profile">
-      <div class="card-content" id="liked-posts" style="display: none;"> 
-         <div class="liked-pfp">
+    <div class="card-content" id="liked-posts" style="display: none;"> 
+        <div class="liked-pfp">
+            @foreach($likes as $liked)
             <div class="forum-user">
                 <div class="img">
-                    <img src="../images/pic-1.jpg">
+                    <img src="../images/pic-{{ $liked->answer->user_id}}.jpg">
                 </div>
                 <div class="answers">
                     <div class="name">
-                        <h3>Manuel</h3>
+                        <h3>{{ $liked->answer->user->name }}</h3>
                     </div>
                     <div class="assunto">
-                        <p>Faz isso e tals</p>
+                        <p>{{ $liked->answer->answer }}</p>
                     </div>
                     <div class=" text-small">
-                        data
+                        @php
+                            $date = new DateTime($liked->created_at);
+                            echo "Curtido em " . $date->format('d/m/Y - H:i');
+                        @endphp  
                     </div>
                 </div>
-                        <div class="forum-btn">
-                            <div class="option">
-                                <div id="options-box" class="options-box" style="display: none;">
-                                    <ul>
-                                        <li><a href="#">Editar</a></li>
-                                        <li><a href="#">Excluir</a></li>
-                                        <li><a href="#">Denunciar</a></li>
-                                    </ul>
-                                </div>
-                            <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
-                            </div>
-                        
-                            <div class="like">
-                                
-                                <button><i class="fa-solid fa-heart"></i></button>
-                                <!-- coração quando clicado:
-                                <i class="fa-solid fa-heart"></i> -->
-                            </div>
-                        </div>
+                <div class="forum-btn">
+                    <a href="{{ route('viewForumAnswers', ['post_id' => $liked->answer->post_id])}}" class="btn">Visualizar</a>
+                </div>
             </div>
-            <div class="forum-user">
-                <div class="img">
-                    <img src="../images/pic-1.jpg">
-                </div>
-                <div class="answers">
-                    <div class="name">
-                        <h3>Manuel</h3>
-                    </div>
-                    <div class="assunto">
-                        <p>Faz isso e tals</p>
-                    </div>
-                    <div class=" text-small">
-                        data
-                    </div>
-                </div>
-                        <div class="forum-btn">
-                            <div class="option">
-                                <div id="options-box" class="options-box" style="display: none;">
-                                    <ul>
-                                        <li><a href="#">Editar</a></li>
-                                        <li><a href="#">Excluir</a></li>
-                                        <li><a href="#">Denunciar</a></li>
-                                    </ul>
-                                </div>
-                            <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
-                            </div>
-                        
-                            <div class="like">
-                                
-                                <button><i class="fa-solid fa-heart"></i></button>
-                                <!-- coração quando clicado:
-                                <i class="fa-solid fa-heart"></i> -->
-                            </div>
-                        </div>
-            </div>
-         </div>
-         </div>
-         
-      </div>
+            @endforeach
+        </div>
+    </div>
+
       <div class="card-content" id="saved-files" style="display: none;">
          arquivos
       </div>
@@ -220,146 +173,164 @@ Perfil
          <div class="comments-pfp" id="questions" style="display: block;">
             <!-- Conteúdo das perguntas -->
             <div class="subforum-row">
+                @foreach($posts as $post)
                 <div class="subforum-icon subforum-column">
-                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>                    
-                </div>
-                <div class="subforum-column">
-                  <h4><a href="#">Mateus</a></h4>
-                  <p class="text">pra fazer um texto grande use h1</p>
-                    
-                </div>
-                <div class="subforum-column">
-                    <span class="text">
-                        
-                    </span><br/>
-                    <span><a href="">Ver comentario</a></span>
-                </div>
-                <div class="subforum-column text-small">
-                    data
-                </div>
+                    @if ($post->language == 'HTML')
+                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
 
-                <div class="subforum-icon subforum-column">
-                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>                    
+                    @elseif ($post->language == 'CSS')
+                    <i class="fa-brands fa-css3-alt" style="color:#1572B6 ;"></i>
+
+                    @elseif ($post->language == 'JavaScript')
+                    <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
+
+                    @elseif ($post->language == 'PHP')
+                    <i class="fa-brands fa-php" style="color: #4F5D95;"></i>
+
+                    @endif                  
                 </div>
                 <div class="subforum-column">
-                  <h4><a href="#">Mateus</a></h4>
-                  <p class="text">Texto normal usa a tag p </p>
+                  <h4><a href="route('viewProfile', [profile = ])">{{$post->user->name}}</a></h4>
+                  <p class="text">{{ $post->subject}}</p>
                     
                 </div>
                 <div class="subforum-column">
                     <span class="text">
-                        
+                        @php 
+                            $post_answers = App\Models\ForumAnswer::where('post_id', '=', $post->id)->count();
+                            if($post_answers == 1){
+                                echo $post_answers . " Resposta";
+                            }
+                            else{
+                                echo $post_answers . " Respostas";
+                            }
+                        @endphp
                     </span><br/>
-                    <span><a href="">Ver comentario</a></span>
+                    <span><a href="{{ route('viewForumAnswers', ['post_id' => $post->id])}}">Ver Respostas</a></span>
                 </div>
                 <div class="subforum-column text-small">
-                    data
+                    @php
+                        $date = new DateTime($post->created_at);
+                        echo $date->format('H:i - d/m/Y');
+                    @endphp
                 </div>
+                @endforeach
             </div>
          </div>
          <div class="comments-pfp" id="answers" style="display: none;">
+
          <!-- Conteúdo das respostas -->
+         @foreach($answers as $answer)
             <div class="subforum-row">
                 <div class="subforum-icon subforum-column">
-                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>                    
+                    @if ($answer->post->language == 'HTML')
+                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
+
+                    @elseif ($answer->post->language == 'CSS')
+                    <i class="fa-brands fa-css3-alt" style="color:#1572B6 ;"></i>
+
+                    @elseif ($answer->post->language == 'JavaScript')
+                    <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
+
+                    @elseif ($answer->post->language == 'PHP')
+                    <i class="fa-brands fa-php" style="color: #4F5D95;"></i>
+
+                    @endif                  
                 </div>
                 <div class="subforum-column">
-                  <h4><a href="#">Lucas</a></h4>
-                  <p class="text">pra fazer um texto grande faço como?</p>  
+                  <h4><a href="route('viewProfile', [profile = ])">{{$answer->post->user->name}}</a></h4>
+                  <p class="text">{{ $answer->post->subject}}</p>
+                    
                 </div>
                 <div class="subforum-column">
                     <span class="text">
-                        Respostas 2    
+                        @php 
+                            $post_answers = App\Models\ForumAnswer::where('post_id', '=', $answer->post->id)->count();
+                            if($post_answers == 1){
+                                echo $post_answers . " Resposta";
+                            }
+                            else{
+                                echo $post_answers . " Respostas";
+                            }
+                        @endphp
                     </span><br/>
-                    
+                    <span><a href="{{ route('viewForumAnswers', ['post_id' => $answer->post->id])}}">Ver Respostas</a></span>
                 </div>
                 <div class="subforum-column text-small">
-                    data
+                    @php
+                        $date = new DateTime($answer->post->created_at);
+                        echo $date->format('H:i - d/m/Y');
+                    @endphp
                 </div>
             </div>
 
             <div class="forum-user">
                 <div class="img">
-                    <img src="../images/pic-1.jpg">
+                    <img src="../images/pic-{{$answer->user->id}}.jpg">
                 </div>
                 <div class="answers">
                     <div class="name">
-                        <h3>Mateus</h3>
+                        <h3>{{$answer->user->name}}</h3>
                     </div>
                     <div class="assunto">
-                        <p>usa o h1</p>
+                        <p>{{ $answer->answer}}</p>
                     </div>
                     <div class=" text-small">
-                        data
-                    </div>         
+                        @php
+                            $date = new DateTime($answer->created_at);
+                            echo $date->format('H:i - d/m/Y');
+                        @endphp
+                    </div>
                 </div>
                 <div class="forum-btn">
-                     <div class="option">
-                                <div id="options-box" class="options-box" style="display: none;">
-                                    <ul>
-                                        <li><a href="#">Editar</a></li>
-                                        <li><a href="#">Excluir</a></li>
-                                        <li><a href="#">Denunciar</a></li>
-                                    </ul>
-                                </div>
-                            <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
+                    <div class="option">
+                        <div id="options-box" class="options-box" style="display: none;">
+                            <ul>
+                                @isset(auth()->user()->id)
+                                    @if(auth()->user()->id == $answer->user->id)
+                                        <li><button id="editar-btn">Editar</button></li>
+                                        <li><form method="POST" action="{{ route("excluirResposta", ["post_id" => $post->user->id, "answer" => $answer->id] )}}">
+                                        @csrf
+                                        @method("delete")
+                                            <button type="submit">Excluir</button>
+                                        </form></li>
+                                    @endif
+                                @endisset
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
                         </div>
-                  <button type="submit" class="inline-btn">Comentario</button>
-               </div>
-         </div>
-
-
-         <div class="subforum-row">
-                <div class="subforum-icon subforum-column">
-                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>                    
+                    <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
+                    </div>
+                
+                    <div class="like">
+                        @php 
+                            $likes = DB::table('likes')->where('answer_id', 'LIKE', $answer->id)->count();
+                            if($likes > 0)
+                            {
+                                //NÚMERO DE CURTIDAS AQUI
+                                echo "<h1>" . DB::table('likes')->where('answer_id', 'LIKE', $answer->id)->count() . "</h1>";
+                            }
+                        @endphp
+                        @if(DB::table('likes')->where('user_id', 'LIKE', auth()->user()->id)->where('answer_id', 'LIKE', $answer->id)->get("user_id")->isEmpty())
+                            <form method="POST" action="{{ route("curtirResposta", ["post_id" => $post->id, "answer_id" => $answer->id])}}">
+                            @csrf
+                                @auth
+                                <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
+                                @endauth
+                                <input type="hidden" id="answer_id" name="answer_id" value="{{ $answer->id }}">
+                                <button type="submit"><p></p><i class="fa-regular fa-heart"></i></button>
+                            </form>
+                        @else
+                            <form method="POST" action="{{ route("descurtirResposta", ["post_id" => $post->id, "answer_id" => $answer->id, 'user_id' => auth()->user()->id])}}">
+                                @csrf
+                                    <button type="submit"><p></p><i class="fa-solid fa-heart"></i></button>
+                                </form>
+                        @endif
+                    </div>
                 </div>
-                <div class="subforum-column">
-                  <h4><a href="#">Lucas</a></h4>
-                  <p class="text">pra fazer um texto grande faço como?</p>  
-                </div>
-                <div class="subforum-column">
-                    <span class="text">
-                    Respostas 3    
-                    </span><br/>
-                    
-                </div>
-                <div class="subforum-column text-small">
-                    data
-                </div>       
             </div>
-
-            <div class="forum-user">
-                <div class="img">
-                    <img src="../images/pic-1.jpg">
-                </div>
-                <div class="answers">
-                    <div class="name">
-                        <h3>Mateus</h3>
-                    </div>
-                    <div class="assunto">
-                        <p>usa o h1</p>
-                    </div>
-                    <div class=" text-small">
-                        data
-                    </div>
-                </div>
-                <div class="forum-btn">
-                     <div class="option">
-                                <div id="options-box" class="options-box" style="display: none;">
-                                    <ul>
-                                        <li><a href="#">Editar</a></li>
-                                        <li><a href="#">Excluir</a></li>
-                                        <li><a href="#">Denunciar</a></li>
-                                    </ul>
-                                </div>
-                            <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
-                        </div>
-                  <button type="submit" class="inline-btn">Comentario</button>
-               </div>
-         </div>
+         @endforeach
       </div>
-      
-      
 </section>
 </main>
 
