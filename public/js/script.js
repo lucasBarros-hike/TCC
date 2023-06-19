@@ -1,7 +1,3 @@
-
-
-
-
 let body = document.body;
 let logo = document.getElementById('logo');
 

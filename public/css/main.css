@@ -10,7 +10,10 @@
     --light-bg: #eee;
     --border: .1rem solid rgba(0,0,0,.2);
 }
-
+.name h3{
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
 *{
     font-family: 'Nunito', sans-serif;
     margin: 0; padding: 0;
@@ -147,6 +150,39 @@ section{
 }
 /* fim botão */
 
+
+.img-container-pfp {
+    position: relative;
+    display: inline-block;
+}
+
+.file-label {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    left: 0;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 8px;
+    font-size: 14px;
+    opacity: 0;
+    display: flex;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.img-container-pfp:hover .file-label {
+    opacity: 1;
+}
+
+.file-input{
+    display: none;
+}
 /* começo do header */
 .header{
     background-color: var(--white);
@@ -971,7 +1007,7 @@ section{
 }
 .forum-main-answers .forum-question .img img{
     height: 9rem;
-    width: 9rem;
+    width: auto;
     border-radius: 50%;
     object-fit: contain;
     margin: 1.5rem;
@@ -1040,8 +1076,8 @@ section{
     height: 9rem;
     width: 9rem;
     border-radius: 50%;
-    object-fit: contain;
-    margin: 1.5rem;
+    object-fit: cover;
+    margin: 1rem;
 }
 .forum-main-answers .forum-answers .answers{
     padding: 1rem 2rem 0 0;
@@ -1220,10 +1256,16 @@ section{
     object-fit: cover;
     margin-bottom: 1rem;
 }
-
+.user-profile .info .user .user-pfp form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .user-profile .info .user .user-pfp form button{
     background-color: transparent;
     cursor: pointer;
+    color: var(--cor-primaria);
+    
 }
 
 

@@ -15,17 +15,21 @@ Perfil
          <div class="user">
 
             <div class="user-pfp">
-               
-            <img src="{{$user->profilePicture}}" alt="">
-            <h3>{{$user->name}}</h3>
-            @if($user->id == auth()->user()->id)
-            <form  enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
+                <div class="img-container-pfp">
+                    <img id="previewImage" src="{{$user->profilePicture}}" alt="">
+                    <label for="profilePicture" class="file-label">Escolher foto de perfil</label>
+                </div>
+            
+        @if($user->id == auth()->user()->id)
+        <form enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
             @csrf
             @method('put')
-                <input type="file" name="profilePicture" id="profilePicture">
-                <button type="submit">Mudar Foto de Perfil</button>
-            </form>
-            @endif
+            
+            <input type="file" name="profilePicture" id="profilePicture" class="file-input">
+            <button type="submit" id="alterarButton" style="display:none;" class="submit-btn">Alterar</button>
+        </form>
+    @endif
+    <h3>{{$user->name}}</h3>
             <p>Estudante</p>
             </div>
             
@@ -175,6 +179,9 @@ Perfil
 
       <div class="card-content" id="saved-files" style="display: ;">
          <div class="files-pfp">
+         @if(count($files) === 0)
+            <h1 class="aviso-pfp">Sem arquivos</h1>
+            @else
             @foreach($files as $file)
                 <div class="message-file">
                 <i class="fa-regular fa-folder"></i>
@@ -196,7 +203,8 @@ Perfil
                     <a id="ellipsis-btn-{{$file->id}}"><i class="fa-solid fa-ellipsis"></i></a>
                 </div>     
                 @include('subjects.subjectsChatOptions')
-            @endforeach       
+            @endforeach   
+            @endif    
          </div>
       </div>
       <div class="card-content" id="comments" style="display: none;">
@@ -249,6 +257,7 @@ Perfil
                     @endphp
                 </div>
                 @endforeach
+                
             </div>
          </div>
          <div class="comments-pfp" id="answers" style="display: none;">
@@ -349,10 +358,33 @@ Perfil
                 </div>
             </div>
          @endforeach
+        
       </div>
 </section>
 </main>
 
+<script>
+document.getElementById('profilePicture').addEventListener('change', function (event) {
+  const input = event.target;
+  const previewImage = document.getElementById('previewImage');
+  const alterarButton = document.getElementById('alterarButton');
+
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      previewImage.src = e.target.result;
+      alterarButton.style.display = 'block'; // Mostra o botão "Alterar"
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    previewImage.src = '{{$user->profilePicture}}';
+    alterarButton.style.display = 'none'; // Esconde o botão "Alterar"
+  }
+});
+
+
+
+</script>
 
 @if(!isset($hideFooter) || $hideFooter === false)
   @include('layouts.footer')
