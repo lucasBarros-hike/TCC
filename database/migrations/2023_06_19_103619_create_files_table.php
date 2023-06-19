@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forum_answers', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->text('answer');
-            $table->foreignId('post_id');
-            $table->foreignId('user_id');
+            $table->text('name');
+            $table->text('path');
+            $table->text('description');
             $table->timestamps();
-            $table->boolean('wasEdited')->default(false);
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forum_answers');
+        Schema::dropIfExists('files');
     }
 };

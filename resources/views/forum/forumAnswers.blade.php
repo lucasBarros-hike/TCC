@@ -14,8 +14,11 @@ Fórum
                 <img src="{{$post->user->profilePicture}}">
             </div>
             <div class="question">
+                @if($post->wasEdited)
+                    <li>Editado</li>
+                @endif
                 <div class="name">
-                    <h3>{{ $post->user->name }}</h3>
+                    <a href="{{route('viewProfile', ["profile" => $post->user->id])}}"><h3>{{ $post->user->name }}</h3></a>
                 </div>
                 <div class="assunto">
                     <h3>{{ $post->subject }}</h3>
@@ -30,17 +33,28 @@ Fórum
                     <div class="option">
                         <div id="options-question-box" class="options-box" style="display: none;">
                             <ul>
-                                <li><a href="#">Editar</a></li>
-                            
+                                @isset(auth()->user()->id)
+                                    @if(auth()->user()->id == $post->user->id)
+                                        <li><button id="editar-question-btn">Editar</button></li>
+                                    @endif
+                                @endisset
                                 <li><a href="#">Denunciar</a></li>
                             </ul>
                         </div>
                         <button id="ellipsis-question-btn"><i class="fas fa-ellipsis-vertical"></i></button>
                         
                     </div>
-                    <button id="responder-btn" class="inline-btn">Responder</button>
-                
+                    <button id="responder-btn" class="inline-btn">Responder</button>  
                 </div>
+        </div>
+
+        <div id="edita-question-box" class="user-answers" style="display: none">
+            <form method="POST" action="{{ route("editarPergunta", ["post_id" => $post->id] )}}">
+            @csrf
+            @method("put")
+                <textarea class="form-control" rows="5" name="question" id="question" required>{{$post->question}}</textarea>
+                <button type="submit" class="inline-btn">Editar</button>
+            </form>
         </div>
 
         <div id="resposta-box" class="user-answers" style="display: none">
@@ -70,7 +84,7 @@ Fórum
                     <li>Editado</li>
                 @endif
                     <div class="name">
-                        <h3>{{$answer->user->name}}</h3>
+                        <a href="{{route('viewProfile', ["profile" => $answer->user->id])}}"><h3>{{$answer->user->name}}</h3></a>
                     </div>
                     <div class="assunto">
                         <p>{{ $answer->answer}}</p>
@@ -86,11 +100,11 @@ Fórum
                 </div>
                 <div class="forum-btn">
                     <div class="option">
-                        <div id="options-box" class="options-box" style="display: none;">
+                        <div id="options-box-{{$answer->id}}" class="options-box" style="display: none;">
                             <ul>
                                 @isset(auth()->user()->id)
                                     @if(auth()->user()->id == $answer->user->id)
-                                        <li><button id="editar-btn">Editar</button></li>
+                                        <li><button id="editar-btn-{{$answer->id}}">Editar</button></li>
                                         <li><form method="POST" action="{{ route("excluirResposta", ["post_id" => $post->user->id, "answer" => $answer->id] )}}">
                                         @csrf
                                         @method("delete")
@@ -102,7 +116,7 @@ Fórum
                                 <li><a href="#">Denunciar</a></li>
                             </ul>
                         </div>
-                    <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
+                    <button id="ellipsis-btn-{{$answer->id}}"><i class="fas fa-ellipsis-vertical"></i></button>
                     </div>
                 
                     <div class="like">
@@ -132,8 +146,7 @@ Fórum
                     </div>
                 </div>
             </div>
-
-            <div id="edita-box" class="user-answers" style="display: none">
+            <div id="edita-box-{{$answer->id}}" class="user-answers" style="display: none">
                 <form method="POST" action="{{ route("editarResposta", ["post_id" => $post->user->id, "answer" => $answer->id] )}}">
                 @csrf
                 @method("put")
@@ -141,7 +154,8 @@ Fórum
                     <button type="submit" class="inline-btn">Editar</button>
                 </form>
             </div>
-           
+            @include('forum.forumAnswersOptions')
+        
             @endforeach
         </div>
     </div>

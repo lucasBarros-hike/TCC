@@ -94,34 +94,6 @@ responderBtn.addEventListener('click', function() {
   }
 });
 
-var caixaEdita = document.getElementById('edita-box');
-var editarBtn = document.getElementById('editar-btn');
-
-editarBtn.addEventListener('click', function() {
-  if (caixaEdita.style.display === 'block') {
-    caixaEdita.style.display = 'none';
-  } else {
-    caixaEdita.style.display = 'block';
-  }
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  var optionsBox = document.getElementById('options-box');
-  var ellipsisBtn = document.getElementById('ellipsis-btn');
-
-  ellipsisBtn.addEventListener('click', function() {
-      if (optionsBox.style.display === 'block') {
-          optionsBox.style.display = 'none';
-      } else {
-          optionsBox.style.display = 'block';
-      }
-  });
-});
-
-
 document.addEventListener('DOMContentLoaded', function() {
   var optionsQuestionBox = document.getElementById('options-question-box');
   var ellipsisQuestionBtn = document.getElementById('ellipsis-question-btn');
@@ -134,6 +106,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
+
+var caixaQuestionEdita = document.getElementById('edita-question-box');
+var editarQuestionBtn = document.getElementById('editar-question-btn');
+
+editarQuestionBtn.addEventListener('click', function() {
+  if (caixaQuestionEdita.style.display === 'block') {
+    caixaQuestionEdita.style.display = 'none';
+  } else {
+    caixaQuestionEdita.style.display = 'block';
+  }
+});
+
 function toggleCard(cardId) {
   var card = document.getElementById(cardId);
   var allCards = document.getElementsByClassName("card-content");

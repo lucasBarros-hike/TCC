@@ -38,9 +38,16 @@ class ForumPostController extends Controller
         else {return redirect('/');}
     }
 
-    public function editarPergunta()
+    public function editarPergunta(ForumPost $post_id)
     {
+        $dados = request()->validate([
+            'question' => "string"
+        ]);
 
+        $post_id->update($dados);
+        $post_id->wasEdited = true;
+        $post_id->save();
+        return redirect()->back();
     }
 
     public function alterarPergunta()

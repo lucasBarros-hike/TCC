@@ -59,7 +59,7 @@ Fórum
                     @endif
                 </div>
                 <div class="subforum-column">
-                    <h4><a href="#">{{ $post->user->name }}</a></h4>
+                    <h4><a href="{{route('viewProfile', ["profile" => $post->user->id])}}">{{ $post->user->name }}</a></h4>
                     <p class="text">{{ $post->subject }}</p>
                 </div>
                 <div class="subforum-column">

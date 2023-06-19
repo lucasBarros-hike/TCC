@@ -27,7 +27,6 @@ Perfil
             </form>
             @endif
             <p>Estudante</p>
-            <!-- <a href="update.html" class="inline-btn">update profile</a> -->
             </div>
             
             <div class="user-rank">
@@ -108,7 +107,7 @@ Perfil
       <div class="flex">
          <i class="fas fa-bookmark"></i>
          <div>
-            <span>4</span>
+            <span>3</span>
             <p>Arquivos Salvos</p>
          </div>
       </div>
@@ -153,7 +152,7 @@ Perfil
                 </div>
                 <div class="answers">
                     <div class="name">
-                        <h3>{{ $liked->answer->user->name }}</h3>
+                        <h3><a href="{{route('viewProfile', ["profile" => $liked->user->id])}}">{{ $liked->answer->user->name }}</a></h3>
                     </div>
                     <div class="assunto">
                         <p>{{ $liked->answer->answer }}</p>
@@ -222,7 +221,7 @@ Perfil
                     @endif                  
                 </div>
                 <div class="subforum-column">
-                  <h4><a href="route('viewProfile', [profile = ])">{{$post->user->name}}</a></h4>
+                  <h4><a href="{{route('viewProfile', ["profile" => $post->user->id])}}">{{$post->user->name}}</a></h4>
                   <p class="text">{{ $post->subject}}</p>
                     
                 </div>
@@ -270,7 +269,7 @@ Perfil
                     @endif                  
                 </div>
                 <div class="subforum-column">
-                  <h4><a href="route('viewProfile', [profile = ])">{{$answer->post->user->name}}</a></h4>
+                  <h4><a href="{{route('viewProfile', ["profile" => $answer->user->id])}}">{{$answer->post->user->name}}</a></h4>
                   <p class="text">{{ $answer->post->subject}}</p>
                     
                 </div>
@@ -302,12 +301,12 @@ Perfil
                 </div>
                 <div class="answers">
                     <div class="name">
-                        <h3>{{$answer->user->name}}</h3>
+                        <h3><a href="{{route('viewProfile', ["profile" => $answer->user->id])}}">{{$answer->user->name}}</a></h3>
                     </div>
                     <div class="assunto">
                         <p>{{ $answer->answer}}</p>
                     </div>
-                    <div class=" text-small">
+                    <div class="text-small">
                         @php
                             $date = new DateTime($answer->created_at);
                             echo $date->format('H:i - d/m/Y');
@@ -316,22 +315,7 @@ Perfil
                 </div>
                 <div class="forum-btn">
                     <div class="option">
-                        <div id="options-box" class="options-box" style="display: none;">
-                            <ul>
-                                @isset(auth()->user()->id)
-                                    @if(auth()->user()->id == $answer->user->id)
-                                        <li><button id="editar-btn">Editar</button></li>
-                                        <li><form method="POST" action="{{ route("excluirResposta", ["post_id" => $answer->post->user->id, "answer" => $answer->id] )}}">
-                                        @csrf
-                                        @method("delete")
-                                            <button type="submit">Excluir</button>
-                                        </form></li>
-                                    @endif
-                                @endisset
-                                <li><a href="#">Denunciar</a></li>
-                            </ul>
-                        </div>
-                    <button id="ellipsis-btn"><i class="fas fa-ellipsis-vertical"></i></button>
+                        @php /*DIV VAZIA PARA O BOTÃO DE LIKE APARECER EMBAIXO*/ @endphp
                     </div>
                 
                     <div class="like">

@@ -28,9 +28,9 @@ Postagens
           <img src="{{$message->user->profilePicture}}" alt="Usuário 1">
         </div>
         <div class="message-chat">
-            <div class="name">
+            <a href="{{route('viewProfile', ["profile" => $message->user->id])}}"><div class="name">
               {{ $message->user->name}}
-            </div>
+            </div></a>
             <div class="message-text">
             <p>{{ $message->message }}</p>
               <span class="timestamp">

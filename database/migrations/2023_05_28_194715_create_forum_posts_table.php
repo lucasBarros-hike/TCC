@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('language');
             $table->foreignId('user_id');
             $table->timestamps();
+            $table->boolean('wasEdited')->default(false);
         });
     }
 

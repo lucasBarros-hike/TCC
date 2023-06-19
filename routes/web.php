@@ -59,29 +59,31 @@ Route::group(['prefix' => 'forum'], function () {
     Route::get('/', [ForumPostController::class, 'mostrarForum'])->name('viewForum');
     Route::post('/', [ForumPostController::class, 'publicarPergunta'])->name('publicarPergunta')->middleware('auth');
 
-    Route::get('/editar/{post}',  [ForumPostController::class, 'editarPergunta'])->name('editarPergunta');
-    Route::post('/editar/{post}',  [ForumPostController::class, 'alterarPergunta'])->name('alterarPergunta');
+    Route::put('/{post_id}/editar',  [ForumPostController::class, 'editarPergunta'])->name('editarPergunta')->middleware('auth');
     
-    Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta');
+    Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta')->middleware('auth');
 
     //RESPOSTAS
     Route::get('/{post_id}', [ForumAnswerController::class, 'mostrarRespostasForum'])->name('viewForumAnswers');
     Route::post('/{post_id}', [ForumAnswerController::class, 'publicarResposta'])->name('publicarResposta')->middleware('auth');
     
-    Route::post('/{post_id}/curtir/{answer_id}', [LikesController::class, 'curtirResposta'])->name('curtirResposta')->middleware('auth');
-    Route::post('/{post_id}/descurtir/{answer_id}/{user_id}', [LikesController::class, 'descurtirResposta'])->name('descurtirResposta')->middleware('auth');
-
     Route::put('/{post_id}/editar/{answer}',[ForumAnswerController::class, 'editarResposta'])->name('editarResposta')->middleware('auth');
 
     Route::delete('/{post_id}/excluir/{answer}', [ForumAnswerController::class, 'excluirResposta'])->name('excluirResposta')->middleware('auth');
+
+    Route::post('/{post_id}/curtir/{answer_id}', [LikesController::class, 'curtirResposta'])->name('curtirResposta')->middleware('auth');
+    Route::post('/{post_id}/descurtir/{answer_id}/{user_id}', [LikesController::class, 'descurtirResposta'])->name('descurtirResposta')->middleware('auth');
 });
 
 Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');
 Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
 Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');
 
-Route::get('/perfil/{profile}', [ProfileController::class, 'mostrarPerfil'])->name('viewProfile');
-Route::put('/perfil/{profile}', [ProfileController::class, 'mudarFotoPerfil'])->name('mudarFotoPerfil');
+Route::group(['prefix' => 'perfil'], function () {
+    //PERFIL
+    Route::get('/{profile}', [ProfileController::class, 'mostrarPerfil'])->name('viewProfile');
+    Route::put('/{profile}', [ProfileController::class, 'mudarFotoPerfil'])->name('mudarFotoPerfil')->middleware('auth');
+});
 
 Route::fallback(function () {
     $posts = App\Models\ForumPost::orderByDesc('created_at')
