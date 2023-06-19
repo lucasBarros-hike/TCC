@@ -37,4 +37,18 @@ class ProfileController extends Controller
             return view('perfil', ['user' => $user, 'likes' => $likes, 'posts' => $posts, 'answers' => $answers]);
         };
     }
+
+    public function mudarFotoPerfil($profile, Request $request)
+    {
+        $dados = request()->validate([
+            'profilePicture' => "file|required"
+        ]);
+
+        $file = $dados['profilePicture'];
+        $path = $file->store('capa','public');
+
+        User::where('id', $profile)->update(['profilePicture' => "../storage/$path"]);
+
+        return redirect()->back();
+    }
 }

@@ -16,9 +16,16 @@
         </div> 
       
       
-      <form action="{{ route('pesquisar', ['filter' => 'forum'])}}" method="post" class="busca-form">
+      <form action="{{ route('pesquisar')}}" method="post" class="busca-form">
         @csrf
-        
+        <div>
+          <select name="filter" id="filter" required>
+              <option value="usuarios">Usuários</option>
+              <option value="materias">Matérias</option>
+              <option value="perguntasForum">Perguntas do Forum</option>
+              <option value="respostasForum">Respostas do Forum</option>
+          </select>
+        </div>
         <!--CRIAR O CHECK BOX PARA FILTRAGEM DE PESQUISA AQUI-->
 
         <input type="text" name="search" id="search" placeholder="Buscar..." required maxlength="100">
@@ -49,7 +56,7 @@
     <!-- site logado -->
     @auth
     <div class="perfil">
-        <img src="../images/pic-{{ auth()->user()->id }}.jpg" alt="" srcset="">
+        <img src="{{ auth()->user()->profilePicture}}" alt="" srcset="">
         <a href="{{route('viewProfile', ["profile" => auth()->user()->id])}}"><h3>{{ auth()->user()->name }}</h3></a>
         <span>Estudante</span>
           <div class="flex-btn">

@@ -11,7 +11,7 @@ Fórum
     <div class="forum-flex">
         <div class="forum-question">
             <div class="img">
-                <img src="../images/pic-{{$post->user->id}}.jpg">
+                <img src="{{$post->user->profilePicture}}">
             </div>
             <div class="question">
                 <div class="name">
@@ -63,7 +63,7 @@ Fórum
             @foreach($answers as $answer)
             <div class="forum-user">
                 <div class="img">
-                    <img src="../images/pic-{{$answer->user->id}}.jpg">
+                    <img src="{{$answer->user->profilePicture}}">
                 </div>
                 <div class="answers">
                     <div class="name">

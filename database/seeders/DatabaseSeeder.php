@@ -21,19 +21,22 @@ class DatabaseSeeder extends Seeder
         $user1 = User::create([
             'name' => 'Lucas Barros',
             'email' => 'lucas.barros104@etec.sp.gov.br',
-            'password' => '1234'
+            'password' => '1234',
+            'profilePicture' => "/images/fotosDePerfil/default2.jpg"
         ]);
 
         $user2 = User::create([
             'name' => 'Amanda Santos',
             'email' => 'amanda.santos72@etec.sp.gov.br',
-            'password' => '1234'
+            'password' => '1234',
+            'profilePicture' => "/images/fotosDePerfil/default3.jpg"
         ]);
 
         $user3 = User::create([
             'name' => 'João Batista',
             'email' => 'joao.batista14@etec.sp.gov.br',
-            'password' => '1234'
+            'password' => '1234',
+            'profilePicture' => "/images/fotosDePerfil/default4.jpg"
         ]);
 
         ForumPost::create([

@@ -11,12 +11,6 @@ Postagens
       
       <div class="chat-perfil">
       <a href="{{route('viewMaterias')}}" class="chevron"><i class="fa-solid fa-chevron-left"></i></a> 
-        @auth
-        <img src="../images/pic-{{ auth()->user()->id }}.jpg">
-        @endauth
-        @guest
-        <img src="../images/user-3.jpg">
-        @endguest
         <p>{{ $subject->subject}}</p>
       </div>
       <div class="chat-options">
@@ -30,7 +24,7 @@ Postagens
       @foreach($messages as $message)
       <div class="message">
         <div class="img">
-          <img src="../images/pic-{{$message->user->id}}.jpg" alt="Usuário 1">
+          <img src="{{$message->user->profilePicture}}" alt="Usuário 1">
         </div>
         <div class="message-chat">
             <div class="name">

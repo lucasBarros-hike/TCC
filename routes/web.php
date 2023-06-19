@@ -32,6 +32,8 @@ Route::get('/', function () {
     return view('home', ['posts' => $posts, 'subjects' => $subjects]);
 })->name('home');
 
+Route::post('/', [SearchController::class, 'pesquisar'])->name('pesquisar');
+
 //LOGIN E CADASTRO
 Route::get('/login', [AuthController::class, 'mostrarLogin'])->name('viewLogin');
 Route::post('/login', [AuthController::class, 'realizarLogin'])->name('realizarLogin'); 
@@ -79,8 +81,7 @@ Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
 Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');
 
 Route::get('/perfil/{profile}', [ProfileController::class, 'mostrarPerfil'])->name('viewProfile');
-
-Route::post('/pesquisa/{filter}', [SearchController::class, 'pesquisar'])->name('pesquisar');
+Route::put('/perfil/{profile}', [ProfileController::class, 'mudarFotoPerfil'])->name('mudarFotoPerfil');
 
 Route::fallback(function () {
     $posts = App\Models\ForumPost::orderByDesc('created_at')

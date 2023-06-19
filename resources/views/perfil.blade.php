@@ -16,8 +16,16 @@ Perfil
 
             <div class="user-pfp">
                
-            <img src="../images/pic-{{ $user->id}}.jpg" alt="">
+            <img src="{{$user->profilePicture}}" alt="">
             <h3>{{$user->name}}</h3>
+            @if($user->id == auth()->user()->id)
+            <form enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
+            @csrf
+            @method('put')
+                <input type="file" name="profilePicture" id="profilePicture">
+                <button type="submit">Mudar Foto de Perfil</button>
+            </form>
+            @endif
             <p>Estudante</p>
             <!-- <a href="update.html" class="inline-btn">update profile</a> -->
             </div>
@@ -138,7 +146,7 @@ Perfil
             @foreach($likes as $liked)
             <div class="forum-user">
                 <div class="img">
-                    <img src="../images/pic-{{ $liked->answer->user_id}}.jpg">
+                    <img src="{{ $liked->answer->user->profilePicture}}">
                 </div>
                 <div class="answers">
                     <div class="name">
@@ -266,7 +274,7 @@ Perfil
 
             <div class="forum-user">
                 <div class="img">
-                    <img src="../images/pic-{{$answer->user->id}}.jpg">
+                    <img src="{{$answer->user->profilePicture}}">
                 </div>
                 <div class="answers">
                     <div class="name">
@@ -289,7 +297,7 @@ Perfil
                                 @isset(auth()->user()->id)
                                     @if(auth()->user()->id == $answer->user->id)
                                         <li><button id="editar-btn">Editar</button></li>
-                                        <li><form method="POST" action="{{ route("excluirResposta", ["post_id" => $post->user->id, "answer" => $answer->id] )}}">
+                                        <li><form method="POST" action="{{ route("excluirResposta", ["post_id" => $answer->post->user->id, "answer" => $answer->id] )}}">
                                         @csrf
                                         @method("delete")
                                             <button type="submit">Excluir</button>
@@ -312,7 +320,7 @@ Perfil
                             }
                         @endphp
                         @if(DB::table('likes')->where('user_id', 'LIKE', auth()->user()->id)->where('answer_id', 'LIKE', $answer->id)->get("user_id")->isEmpty())
-                            <form method="POST" action="{{ route("curtirResposta", ["post_id" => $post->id, "answer_id" => $answer->id])}}">
+                            <form method="POST" action="{{ route("curtirResposta", ["post_id" => $answer->post->id, "answer_id" => $answer->id])}}">
                             @csrf
                                 @auth
                                 <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
@@ -321,7 +329,7 @@ Perfil
                                 <button type="submit"><p></p><i class="fa-regular fa-heart"></i></button>
                             </form>
                         @else
-                            <form method="POST" action="{{ route("descurtirResposta", ["post_id" => $post->id, "answer_id" => $answer->id, 'user_id' => auth()->user()->id])}}">
+                            <form method="POST" action="{{ route("descurtirResposta", ["post_id" => $answer->post->id, "answer_id" => $answer->id, 'user_id' => auth()->user()->id])}}">
                                 @csrf
                                     <button type="submit"><p></p><i class="fa-solid fa-heart"></i></button>
                                 </form>

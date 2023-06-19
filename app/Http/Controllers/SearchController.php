@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-    public function pesquisar($filter, Request $request){
+    public function pesquisar(Request $request){
+        $filter = $request->input('filter');
         $pesquisa = $request->input('search');
         if($filter == 'usuarios'){
             $results = DB::table('users')->where('name', 'LIKE', '%'.$pesquisa.'%')->get();
@@ -19,8 +20,19 @@ class SearchController extends Controller
             return view('pesquisa', ['search' => $pesquisa, 'results' => $results, 'filter' => $filter]);
         }
 
-        else if($filter == 'forum'){
-            $results = DB::table('forum_posts')->where('question', 'LIKE', '%'.$pesquisa.'%')->get();
+        else if($filter == 'perguntasForum'){
+            $results = DB::table('forum_posts')
+                ->where('question', 'LIKE', '%'.$pesquisa.'%')
+                ->orderBy('created_at', 'desc')
+                ->get();
+            return view('pesquisa', ['search' => $pesquisa, 'results' => $results, 'filter' => $filter]);
+        }
+
+        else if($filter == 'respostasForum'){
+            $results = DB::table('forum_answers')
+                ->where('answer', 'LIKE', '%'.$pesquisa.'%')
+                ->orderBy('created_at', 'desc')
+                ->get();
             return view('pesquisa', ['search' => $pesquisa, 'results' => $results, 'filter' => $filter]);
         }
     }
