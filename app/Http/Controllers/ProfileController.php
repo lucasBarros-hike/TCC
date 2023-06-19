@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ForumAnswer;
+use App\Models\SavedFiles;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Likes;
@@ -24,6 +25,11 @@ class ProfileController extends Controller
                 ->where('user_id', $user->id)
                 ->get();
 
+            $files = SavedFiles::orderByDesc('created_at')
+                ->with(['user', 'file'])
+                ->where('user_id',$user->id)
+                ->get();
+                
             $posts = ForumPost::orderByDesc('created_at')
                 ->with(['user'])
                 ->where('user_id', $user->id)
@@ -34,7 +40,7 @@ class ProfileController extends Controller
                 ->where('user_id',$user->id)
                 ->get();
 
-            return view('perfil', ['user' => $user, 'likes' => $likes, 'posts' => $posts, 'answers' => $answers]);
+            return view('perfil', ['user' => $user, 'likes' => $likes, 'posts' => $posts, 'answers' => $answers, 'files' => $files]);
         };
     }
 
@@ -45,7 +51,7 @@ class ProfileController extends Controller
         ]);
 
         $file = $dados['profilePicture'];
-        $path = $file->store('capa','public');
+        $path = $file->store('fotoPerfil','public');
 
         User::where('id', $profile)->update(['profilePicture' => "../storage/$path"]);
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Files;
 use App\Models\Subject;
 use App\Models\User;
 use App\Models\ChatPost;
@@ -67,7 +68,7 @@ class DatabaseSeeder extends Seeder
             'language' => 'HTML'
         ]);
 
-        Subject::create([
+        $subject = Subject::create([
             'subject' => 'Programação Web',
             'banner_directory' => 'programacao-web.png'
         ]);
@@ -92,6 +93,13 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user2->id,
             'message' => 'Boa noite, João. Se conseguir, poste sua dúvida no fórum, vamos responder por lá.',
             'subject_id' => '1'
+        ]);
+
+        Files::create([
+            'subject_id' => $subject->id,
+            'name' => 'HTML Teoria',
+            'path' => '/storage/files/html_teoria.pdf',
+            'description' => 'Informações gerais sobre as principais tags HTML'
         ]);
     }
 }

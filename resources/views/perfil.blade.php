@@ -107,7 +107,7 @@ Perfil
       <div class="flex">
          <i class="fas fa-bookmark"></i>
          <div>
-            <span>3</span>
+            <span>{{ $files->count( )}}</span>
             <p>Arquivos Salvos</p>
          </div>
       </div>
@@ -175,25 +175,28 @@ Perfil
 
       <div class="card-content" id="saved-files" style="display: ;">
          <div class="files-pfp">
-            
-
+            @foreach($files as $file)
                 <div class="message-file">
                 <i class="fa-regular fa-folder"></i>
-                    <p>nome do arquivo.png</p>
-                    <i class="fa-solid fa-ellipsis"></i>
-                </div>
-
-                <div class="message-file">
-                <i class="fa-regular fa-folder"></i>
-                    <p>nome do arquivo.png</p>
-                    <i class="fa-solid fa-ellipsis"></i>
-                </div>
-                <div class="message-file">
-                <i class="fa-regular fa-folder"></i>
-                    <p>nome do arquivo.png</p>
-                    <i class="fa-solid fa-ellipsis"></i>
-                </div>
-            
+                    <p>{{ $file->file->name }}</p>
+                    <div class="option">
+                        <div id="options-box-{{$file->id}}" class="options-box" style="display: none;">
+                            <ul>
+                              @auth <li><a href="{{ $file->file->path }}" download>Baixar</a></li> @endauth
+                              @guest <li><a href="{{ route("viewLogin")}}">Baixar</a></li> @endguest
+                              @isset(auth()->user()->id)
+                                <form method="POST" action="{{ route("removerArquivo", ["subject_id" => $file->file->subject->id, "file_id" => $file->file->id, 'user_id' => auth()->user()->id])}}">
+                                @csrf
+                                    <li><button type="submit">Desfavoritar</button></li>
+                                </form>
+                              @endisset
+                            </ul>
+                        </div>
+                      </div>
+                    <a id="ellipsis-btn-{{$file->id}}"><i class="fa-solid fa-ellipsis"></i></a>
+                </div>     
+                @include('subjects.subjectsChatOptions')
+            @endforeach       
          </div>
       </div>
       <div class="card-content" id="comments" style="display: none;">

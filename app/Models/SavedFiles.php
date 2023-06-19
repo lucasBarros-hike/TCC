@@ -5,14 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Files extends Model
+class SavedFiles extends Model
 {
     use HasFactory;
 
     public $guarded = ['id'];
 
-    public function subject()
+    public function user()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function file()
+    {
+        return $this->belongsTo(Files::class);
     }
 }

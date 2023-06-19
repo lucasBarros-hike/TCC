@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChatPost;
+use App\Models\Files;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,12 @@ class ChatPostController extends Controller
                 ->where('subject_id',$subject_id)
                 ->get();
 
-        return view('subjects.subjectsChat', ['subject' => $subject, 'messages' => $messages]);
+        $files = Files::orderBy('created_at')
+                ->with(['subject'])
+                ->where('subject_id',$subject_id)
+                ->get();
+
+        return view('subjects.subjectsChat', ['subject' => $subject, 'messages' => $messages, 'files' => $files]);
     }
 
     public function publicarMensagem(Request $request,  $subject_id)

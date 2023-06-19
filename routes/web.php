@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChatPostsController;
+use App\Http\Controllers\SavedFilesController;
 use App\Models\Likes;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -51,6 +52,9 @@ Route::group(['prefix' => 'materias'], function () {
     Route::post('/editar/{post}',  [ChatPostController::class, 'alterarMensagem'])->name('alterarMensagem');
     
     Route::delete('/apagar/{post}', [ChatPostController::class, 'excluirMensagem'])->name('excluirMensagem');
+
+    Route::post('/{subject_id}/salvar/{file_id}', [SavedFilesController::class, 'salvarArquivo'])->name('salvarArquivo')->middleware(('auth'));
+    Route::post('/{subject_id}/remover/{file_id}/{user_id}', [SavedFilesController::class, 'removerArquivo'])->name('removerArquivo')->middleware(('auth'));
 });
 
 //FORUM
