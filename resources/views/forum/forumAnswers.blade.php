@@ -14,9 +14,7 @@ Fórum
                 <img src="{{$post->user->profilePicture}}">
             </div>
             <div class="question">
-                @if($post->wasEdited)
-                    <li>Editado</li>
-                @endif
+                
                 <div class="name">
                     <a href="{{route('viewProfile', ["profile" => $post->user->id])}}"><h3>{{ $post->user->name }}</h3></a>
                 </div>
@@ -41,6 +39,9 @@ Fórum
                                 <li><a href="#">Denunciar</a></li>
                             </ul>
                         </div>
+                        @if($post->wasEdited)
+                            <li>Editado</li>
+                        @endif
                         <button id="ellipsis-question-btn"><i class="fas fa-ellipsis-vertical"></i></button>
                         
                     </div>
