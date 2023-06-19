@@ -214,6 +214,15 @@ section{
     display: none;
 }
 
+.header .flex form div select{
+    background-color: transparent;
+    color: var(--black);
+    width: 8rem;
+}
+.header .flex form div select option{
+    background-color: var(--white);
+    
+}
 
 /* começo da sidebar */
 .sidebar{
@@ -582,7 +591,7 @@ section{
     display: flex;
     flex-direction: column;
     
-    min-height: 80%;
+    min-height: 50rem;
     padding-left: 3rem;
     padding-right: 3rem;
     
@@ -606,6 +615,8 @@ section{
     align-items: flex-start;
     flex-grow: 1;
 }
+
+
 
 .chatbox .chat .chat-body .message .message-chat .name{
     margin: 0rem 0rem 0.5rem 1rem;
@@ -644,6 +655,21 @@ section{
     color: var(--black);
   }
 
+  .chatbox .chat .chat-body .message .message-chat .message-text .message-file{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--light-bg);
+    gap: 2rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+  }
+  .chatbox .chat .chat-body .message .message-chat .message-text .message-file i{
+    color: var(--black);
+    font-size: 2.2rem;
+  }
   /* usuario principal */
 .chatbox .chat .chat-body .message-user{ 
     display: flex;
@@ -806,6 +832,8 @@ section{
 .chatbox .chat .chat-body .message .message-chat .message-atividade .atividade-btn:hover{
     background-color: var(--black);
 }
+
+
 
 /* fim da materia */
 
@@ -1018,6 +1046,7 @@ section{
 .forum-main-answers .forum-answers .answers{
     padding: 1rem 2rem 0 0;
     width: 100%;
+    position: relative;
 }
 .forum-main-answers .forum-answers .answers .name{
     margin-bottom: 0.5rem;
@@ -1029,7 +1058,19 @@ section{
     font-size: 1.5rem;
     color: var(--black);
 }
-
+.answers .text-small{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.answers li{
+    list-style: none;
+    color: var(--black);
+    position: absolute;
+    padding-top: 1rem;
+    top: 0;
+    right: 0;
+}
 .forum-btn{
     display:flex;
     flex-direction: column;
@@ -1045,6 +1086,22 @@ section{
     left: 0;
     
 }
+
+/* .file-box{
+    border: var(--border);
+    background-color: var(--white);
+    list-style: none;
+    position: absolute;
+    bottom: 7rem;
+    left: 5rem;
+    
+}
+
+.file-box li{
+    border-bottom: var(--border);
+    padding: 1rem;
+    cursor: pointer;
+} */
 .options-box{
     border: var(--border);
     background-color: var(--white);
@@ -1073,18 +1130,27 @@ section{
 .option button{
     background: none;
     color: var(--black);
+    cursor: pointer;
 }
 
 .like{
     bottom: 0;
     left: 0;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.like p{
+    color: var(--black);
+    font-size: 1.3rem;
+}
+
 .like button{
     display: flex;
     border: none;
     background: none;
     color: var(--black);
+    padding: .5rem;
 }
 
   
@@ -1153,6 +1219,11 @@ section{
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
+}
+
+.user-profile .info .user .user-pfp form button{
+    background-color: transparent;
+    cursor: pointer;
 }
 
 
@@ -1227,6 +1298,12 @@ section{
     font-size: 1.7rem;
 }
 
+.aviso-pfp{
+    text-align: center;
+    padding: 1rem;
+    color: var(--black);
+    font-weight: 300;
+}
 
 
 
@@ -1342,6 +1419,7 @@ section{
 .comments-pfp .forum-user{
     display: flex;
     margin: 1rem;
+    margin-bottom: 3rem;
     padding: 0.5rem 1rem 1rem 0;
     border-radius: 0.5rem;
     gap: 1rem;
@@ -1408,6 +1486,39 @@ section{
     font-size: 1.5rem;
     color: var(--black);
 }
+
+
+/* arquivos do perfil */
+.files-pfp{
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+}
+
+.files-pfp .message-file{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 25rem;
+    margin: 1.5rem;
+    background-color: var(--white);
+    gap: 2rem;
+    padding: 1.3rem;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+    
+  }
+  .files-pfp .message-file i{
+    color: var(--black);
+    font-size: 2.2rem;
+  }
+  .files-pfp .message-file p{
+    color: var(--black);
+    font-size: 1.5rem;
+  }
+
+
 
 .atividade form{
    padding-bottom: 2rem;

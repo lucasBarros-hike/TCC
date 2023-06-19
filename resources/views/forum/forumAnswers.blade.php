@@ -66,6 +66,9 @@ Fórum
                     <img src="{{$answer->user->profilePicture}}">
                 </div>
                 <div class="answers">
+                @if($answer->wasEdited)
+                    <li>Editado</li>
+                @endif
                     <div class="name">
                         <h3>{{$answer->user->name}}</h3>
                     </div>
@@ -79,6 +82,7 @@ Fórum
                         @endphp
                         
                     </div>
+                    
                 </div>
                 <div class="forum-btn">
                     <div class="option">
@@ -94,6 +98,7 @@ Fórum
                                         </form></li>
                                     @endif
                                 @endisset
+                                
                                 <li><a href="#">Denunciar</a></li>
                             </ul>
                         </div>
@@ -106,7 +111,7 @@ Fórum
                             if($likes > 0)
                             {
                                 //NÚMERO DE CURTIDAS AQUI
-                                echo "<h1>" . DB::table('likes')->where('answer_id', 'LIKE', $answer->id)->count() . "</h1>";
+                                echo "<p>" . DB::table('likes')->where('answer_id', 'LIKE', $answer->id)->count() . "</p>";
                             }
                         @endphp
                         @if(DB::table('likes')->where('user_id', 'LIKE', auth()->user()->id)->where('answer_id', 'LIKE', $answer->id)->get("user_id")->isEmpty())
@@ -116,7 +121,7 @@ Fórum
                                 <input type="hidden" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
                                 @endauth
                                 <input type="hidden" id="answer_id" name="answer_id" value="{{ $answer->id }}">
-                                <button type="submit"><p></p><i class="fa-regular fa-heart"></i></button>
+                                <button type="submit"><i class="fa-regular fa-heart"></i></button>
                             </form>
                         @else
                             <form method="POST" action="{{ route("descurtirResposta", ["post_id" => $post->id, "answer_id" => $answer->id, 'user_id' => auth()->user()->id])}}">

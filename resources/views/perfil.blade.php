@@ -19,7 +19,7 @@ Perfil
             <img src="{{$user->profilePicture}}" alt="">
             <h3>{{$user->name}}</h3>
             @if($user->id == auth()->user()->id)
-            <form enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
+            <form  enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
             @csrf
             @method('put')
                 <input type="file" name="profilePicture" id="profilePicture">
@@ -143,6 +143,9 @@ Perfil
 <section class="user-profile">
     <div class="card-content" id="liked-posts" style="display: none;"> 
         <div class="liked-pfp">
+        @if(count($likes) === 0)
+            <h1 class="aviso-pfp">Sem curtidas</h1>
+        @else
             @foreach($likes as $liked)
             <div class="forum-user">
                 <div class="img">
@@ -167,11 +170,32 @@ Perfil
                 </div>
             </div>
             @endforeach
+            @endif
         </div>
     </div>
 
-      <div class="card-content" id="saved-files" style="display: none;">
-         arquivos
+      <div class="card-content" id="saved-files" style="display: ;">
+         <div class="files-pfp">
+            
+
+                <div class="message-file">
+                <i class="fa-regular fa-folder"></i>
+                    <p>nome do arquivo.png</p>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+
+                <div class="message-file">
+                <i class="fa-regular fa-folder"></i>
+                    <p>nome do arquivo.png</p>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+                <div class="message-file">
+                <i class="fa-regular fa-folder"></i>
+                    <p>nome do arquivo.png</p>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+            
+         </div>
       </div>
       <div class="card-content" id="comments" style="display: none;">
          <div class="dropdown">

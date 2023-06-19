@@ -1,3 +1,7 @@
+
+
+
+
 let body = document.body;
 let logo = document.getElementById('logo');
 
@@ -159,4 +163,6 @@ function toggleComments(contentType) {
      answersContent.style.display = 'block';
   }
 }
+
+
 

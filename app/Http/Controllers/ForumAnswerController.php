@@ -48,7 +48,8 @@ class ForumAnswerController extends Controller
         ]);
 
         $answer->update($dados);
-
+        $answer->wasEdited = true;
+        $answer->save();
         return redirect()->back();
     }
 
