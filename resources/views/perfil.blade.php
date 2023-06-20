@@ -19,16 +19,17 @@ Perfil
                     <img id="previewImage" src="{{$user->profilePicture}}" alt="">
                     <label for="profilePicture" class="file-label">Escolher foto de perfil</label>
                 </div>
-            
-        @if($user->id == auth()->user()->id)
-        <form enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
-            @csrf
-            @method('put')
-            
-            <input type="file" name="profilePicture" id="profilePicture" class="file-input">
-            <button type="submit" id="alterarButton" style="display:none;" class="submit-btn">Alterar</button>
-        </form>
-    @endif
+        @isset((auth()->user()->id))
+            @if($user->id == auth()->user()->id)
+            <form enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
+                @csrf
+                @method('put')
+                
+                <input type="file" name="profilePicture" id="profilePicture" class="file-input">
+                <button type="submit" id="alterarButton" style="display:none;" class="submit-btn">Alterar</button>
+            </form>
+            @endif
+        @endisset
     <h3>{{$user->name}}</h3>
             <p>Estudante</p>
             </div>
@@ -214,6 +215,9 @@ Perfil
          </div>
          <div class="comments-pfp" id="questions" style="display: block;">
             <!-- Conteúdo das perguntas -->
+            @if(count($posts) === 0)
+            <h1 class="aviso-pfp">Sem comentários</h1>
+            @else
             <div class="subforum-row">
                 @foreach($posts as $post)
                 <div class="subforum-icon subforum-column">
@@ -257,11 +261,13 @@ Perfil
                     @endphp
                 </div>
                 @endforeach
-                
-            </div>
-         </div>
+                </div>
+                @endif
+        </div>
          <div class="comments-pfp" id="answers" style="display: none;">
-
+            @if(count($answers) === 0)
+            <h1 class="aviso-pfp">Sem respostas</h1>
+            @else
          <!-- Conteúdo das respostas -->
          @foreach($answers as $answer)
             <div class="subforum-row">
@@ -348,13 +354,14 @@ Perfil
                                 @csrf
                                     <button type="submit"><p></p><i class="fa-solid fa-heart"></i></button>
                                 </form>
-                        @endif
                     </div>
                 </div>
             </div>
+            @endif
          @endforeach
-        
-      </div>
+         @endif
+        </div>
+    </div>
 </section>
 </main>
 
