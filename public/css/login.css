@@ -114,7 +114,13 @@ body.dark{
     gap: 1rem;
 }
 
+.erro-login ul li{
+   list-style: none;
+   color: var(--light-color);
+   font-size: 1.4rem;
+   padding-top: 0.3rem;
 
+}
 
 
 

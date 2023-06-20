@@ -31,7 +31,7 @@ Login
               <p>Não tem conta? <a href="{{route('viewCadastro')}}">Cadastrar</a></p>
             </div>
             @if ($errors->any())
-                <div>
+                <div class="erro-login">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error}}</li>

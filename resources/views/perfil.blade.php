@@ -318,12 +318,7 @@ Perfil
                     <div class="assunto">
                         <p>{{ $answer->answer}}</p>
                     </div>
-                    <div class="text-small">
-                        @php
-                            $date = new DateTime($answer->created_at);
-                            echo $date->format('H:i - d/m/Y');
-                        @endphp
-                    </div>
+                    
                 </div>
                 <div class="forum-btn">
                     <div class="option">

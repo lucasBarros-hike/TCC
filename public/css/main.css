@@ -14,6 +14,10 @@
     color: var(--cor-primaria);
     text-decoration: none;
 }
+.name h3 a{
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
 *{
     font-family: 'Nunito', sans-serif;
     margin: 0; padding: 0;
@@ -585,7 +589,7 @@ section{
     height: 5rem;
     width: 5rem;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
     margin-bottom: 1rem;
 }
 .chatbox .chat .chat-header .chat-perfil .chevron{
@@ -636,7 +640,7 @@ section{
     height: 6rem;
     width: 6rem;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
     margin-bottom: 1rem;
 }
 
@@ -707,6 +711,7 @@ section{
     font-size: 2.2rem;
   }
   /* usuario principal */
+
 .chatbox .chat .chat-body .message-user{ 
     display: flex;
     padding: 2rem;
@@ -726,13 +731,20 @@ section{
     max-height: 10rem;
     text-align: justify;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     padding: 1rem;
     border-radius: 1rem;
     margin-left: 1rem;
 }
+.message-chat-user a{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
 .chatbox .chat .chat-body .message-user .message-text-user p{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--black);
 }
 .chatbox .chat .chat-body .message-user .message-text-user .timestamp {
@@ -1016,7 +1028,7 @@ section{
 .forum-main-answers .forum-question .question{
     padding: 1rem 0 0 0;
     width: 100%;
-    position: relative;
+    
 }
 .forum-main-answers .forum-question .question .name{
     margin-bottom: 0.5rem;
@@ -1101,13 +1113,13 @@ section{
     bottom: 0;
     left: 0;
 }
-.option li{
+.question li{
     list-style: none;
     color: var(--black);
     position: absolute;
     padding-top: 1rem;
-    top: 0;
-    right: 3rem;
+    top: 1rem;
+    right: 4rem;
 }
 .answers li{
     list-style: none;
@@ -1152,6 +1164,7 @@ section{
     border: var(--border);
     background-color: var(--white);
     position: absolute;
+    z-index: 9999;
     top: 100%;
     right: 0;
     display: none;
@@ -1481,7 +1494,7 @@ section{
     height: 5rem;
     width: 5rem;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
     margin: 1rem;
 }
 .comments-pfp .forum-user .answers{
@@ -1521,7 +1534,7 @@ section{
     height: 5rem;
     width: 5rem;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
     margin: 1rem;
 }
 .liked-pfp .forum-user .answers{

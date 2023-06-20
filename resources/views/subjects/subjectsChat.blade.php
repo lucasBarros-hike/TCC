@@ -22,28 +22,76 @@ Postagens
     <section id="postagens-section">
     <div class="chat-body">
       
+      @auth
       @foreach($messages as $message)
-      <div class="message">
-        <div class="img">
-          <img src="{{$message->user->profilePicture}}" alt="Usuário 1">
+        @if(auth()->user()->id == $message->user->id)
+        <div class="message-user" >
+          <div class="message-chat-user " >
+              <a href="{{route('viewProfile', ["profile" => $message->user->id])}}"><div class="name">
+                {{ $message->user->name}}
+              </div></a>
+              <div class="message-text-user">
+              <p>{{ $message->message }}</p>
+                <span class="timestamp">
+                  @php
+                  $date = new DateTime($message->created_at);
+                  echo $date->format('H:i - d/m/Y');
+                  @endphp
+                </span>
+              </div>
+              
+          </div>
+          <div class="img">
+            <img src="{{$message->user->profilePicture}}" alt="Usuário 1">
+          </div>
         </div>
-        <div class="message-chat">
-            <a href="{{route('viewProfile', ["profile" => $message->user->id])}}"><div class="name">
-              {{ $message->user->name}}
-            </div></a>
-            <div class="message-text">
-            <p>{{ $message->message }}</p>
-              <span class="timestamp">
-                @php
-                $date = new DateTime($message->created_at);
-                echo $date->format('H:i - d/m/Y');
-                @endphp
-              </span>
-            </div>
+        @else
+        <div class="message">
+          <div class="img">
+            <img src="{{$message->user->profilePicture}}" alt="Usuário 1">
+          </div>
+          <div class="message-chat">
+              <a href="{{route('viewProfile', ["profile" => $message->user->id])}}"><div class="name">
+                {{ $message->user->name}}
+              </div></a>
+              <div class="message-text">
+              <p>{{ $message->message }}</p>
+                <span class="timestamp">
+                  @php
+                  $date = new DateTime($message->created_at);
+                  echo $date->format('H:i - d/m/Y');
+                  @endphp
+                </span>
+              </div>
+          </div>
         </div>
-        
-      </div>
+        @endif
       @endforeach
+      @endauth
+
+      @guest
+      @foreach($messages as $message)
+        <div class="message">
+          <div class="img">
+            <img src="{{$message->user->profilePicture}}" alt="Usuário 1">
+          </div>
+          <div class="message-chat">
+              <a href="{{route('viewProfile', ["profile" => $message->user->id])}}"><div class="name">
+                {{ $message->user->name}}
+              </div></a>
+              <div class="message-text">
+              <p>{{ $message->message }}</p>
+                <span class="timestamp">
+                  @php
+                  $date = new DateTime($message->created_at);
+                  echo $date->format('H:i - d/m/Y');
+                  @endphp
+                </span>
+              </div>
+          </div>
+        </div>
+      @endforeach
+      @endguest
 
     </div>
     <div class="chat-footer">
