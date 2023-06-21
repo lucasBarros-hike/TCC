@@ -37,7 +37,6 @@ class ChatPostController extends Controller
                 'user_id' => "integer|exists:users,id",
                 'subject_id' => "integer|exists:subjects,id",
                 'message' => 'string',
-                'subject' => 'string'
             ]);
             
             ChatPost::create($dados);

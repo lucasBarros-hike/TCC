@@ -19,8 +19,8 @@ class AuthController extends Controller
         if($request->input('password') == $request->input('password_repeat'))
         {
             $dados = $request->validate([
-                'name' => 'required|string',
-                'email' => 'required|email|ends_with:@etec.sp.gov.br|unique:users',
+                'name' => 'required|string|unique:users,name',
+                'email' => 'required|email|ends_with:@etec.sp.gov.br|unique:users,email',
                 'password' => 'required'
              ]);
     
