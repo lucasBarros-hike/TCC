@@ -34,7 +34,6 @@ class ForumAnswerController extends Controller
                     'answer' => 'string',
                 ]);
                 ForumAnswer::create($dados);
-
                 return redirect("/forum/$post_id");
             }
         }
@@ -46,7 +45,6 @@ class ForumAnswerController extends Controller
         $dados = request()->validate([
             'answer' => "string"
         ]);
-
         $answer->update($dados);
         $answer->wasEdited = true;
         $answer->save();

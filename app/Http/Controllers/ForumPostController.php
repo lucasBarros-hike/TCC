@@ -49,15 +49,4 @@ class ForumPostController extends Controller
         $post_id->save();
         return redirect()->back();
     }
-
-    public function alterarPergunta()
-    {
-
-    }
-
-    public function excluirPergunta(ForumPost $post)
-    {
-        $post->delete();
-        return redirect()->back();
-    }
 }

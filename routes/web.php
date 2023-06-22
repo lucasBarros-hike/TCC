@@ -64,8 +64,6 @@ Route::group(['prefix' => 'forum'], function () {
     Route::post('/', [ForumPostController::class, 'publicarPergunta'])->name('publicarPergunta')->middleware('auth');
 
     Route::put('/{post_id}/editar',  [ForumPostController::class, 'editarPergunta'])->name('editarPergunta')->middleware('auth');
-    
-    Route::delete('/apagar/{post}', [ForumPostController::class, 'excluirPergunta'])->name('excluirPergunta')->middleware('auth');
 
     //RESPOSTAS
     Route::get('/{post_id}', [ForumAnswerController::class, 'mostrarRespostasForum'])->name('viewForumAnswers');
