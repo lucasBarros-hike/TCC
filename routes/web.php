@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\ChatPostsController;
 use App\Http\Controllers\SavedFilesController;
-use App\Models\Likes;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SearchController;
@@ -12,6 +10,8 @@ use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\ForumAnswerController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizActivitiesController;
+use App\Http\Controllers\QuizQuestionsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,10 +77,15 @@ Route::group(['prefix' => 'forum'], function () {
     Route::post('/{post_id}/descurtir/{answer_id}/{user_id}', [LikesController::class, 'descurtirResposta'])->name('descurtirResposta')->middleware('auth');
 });
 
-Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');
+//ATIVIDADES
+Route::group(['prefix' => 'atividades'], function () {
+
+    Route::get('/', [QuizActivitiesController::class, 'mostrarAtividades'])->name('viewAtividade');
+    Route::get('/quiz', [QuizQuestionsController::class, 'mostrarQuiz'])->name('viewQuiz')->middleware('auth');
+});
+
 Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
 Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');
-Route::get('/quiz', function () {return View('quiz');})->name('viewQuiz');
 
 Route::group(['prefix' => 'perfil'], function () {
     //PERFIL

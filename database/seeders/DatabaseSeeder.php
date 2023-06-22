@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 use App\Models\Files;
+use App\Models\QuizActivities;
+use App\Models\QuizQuestions;
 use App\Models\Subject;
 use App\Models\User;
 use App\Models\ChatPost;
@@ -100,6 +102,26 @@ class DatabaseSeeder extends Seeder
             'name' => 'HTML Teoria',
             'path' => '/storage/files/html_teoria.pdf',
             'description' => 'Informações gerais sobre as principais tags HTML'
+        ]);
+
+        QuizActivities::create([
+            'name' => 'Introdução ao HTML',
+            'language' => 'HTML'
+        ]);
+
+        QuizActivities::create([
+            'name' => 'Introdução ao CSS',
+            'language' => 'CSS'
+        ]);
+
+        QuizActivities::create([
+            'name' => 'Introdução ao Javascript',
+            'language' => 'Javascript'
+        ]);
+
+        QuizActivities::create([
+            'name' => 'Introdução ao PHP',
+            'language' => 'PHP'
         ]);
     }
 }

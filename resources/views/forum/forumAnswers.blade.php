@@ -31,18 +31,16 @@ Fórum
             
             <div class="forum-btn">
                     <div class="option">
+                        @isset(auth()->user()->id)
+                        @if(auth()->user()->id == $post->user->id)
                         <div id="options-question-box" class="options-box" style="display: none;">
                             <ul>
-                                @isset(auth()->user()->id)
-                                    @if(auth()->user()->id == $post->user->id)
-                                        <li><button id="editar-question-btn">Editar</button></li>
-                                    @endif
-                                @endisset
-                                <li><a href="#">Denunciar</a></li>
+                                <li><button id="editar-question-btn">Editar</button></li>
                             </ul>
                         </div>
                         <button id="ellipsis-question-btn"><i class="fas fa-ellipsis-vertical"></i></button>
-                        
+                        @endif
+                        @endisset
                     </div>
                     <button id="responder-btn" class="inline-btn">Responder</button>  
                 </div>

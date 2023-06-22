@@ -23,7 +23,6 @@
               <option value="usuarios">Usuários</option>
               <option value="materias">Matérias</option>
               <option value="perguntasForum">Perguntas do Forum</option>
-              <option value="respostasForum">Respostas do Forum</option>
           </select>
         </div>
         <!--CRIAR O CHECK BOX PARA FILTRAGEM DE PESQUISA AQUI-->

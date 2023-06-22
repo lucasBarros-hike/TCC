@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ForumPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,17 +22,9 @@ class SearchController extends Controller
         }
 
         else if($filter == 'perguntasForum'){
-            $results = DB::table('forum_posts')
+            $results = ForumPost::orderByDesc('created_at')
                 ->where('question', 'LIKE', '%'.$pesquisa.'%')
-                ->orderBy('created_at', 'desc')
-                ->get();
-            return view('pesquisa', ['search' => $pesquisa, 'results' => $results, 'filter' => $filter]);
-        }
-
-        else if($filter == 'respostasForum'){
-            $results = DB::table('forum_answers')
-                ->where('answer', 'LIKE', '%'.$pesquisa.'%')
-                ->orderBy('created_at', 'desc')
+                ->with('user')
                 ->get();
             return view('pesquisa', ['search' => $pesquisa, 'results' => $results, 'filter' => $filter]);
         }

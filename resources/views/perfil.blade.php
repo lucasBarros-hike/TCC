@@ -17,10 +17,13 @@ Perfil
             <div class="user-pfp">
                 <div class="img-container-pfp">
                     <img id="previewImage" src="{{$user->profilePicture}}" alt="">
+        @guest
+                </div>
+        @endguest        
+        @auth
+            @if($user->id == auth()->user()->id)
                     <label for="profilePicture" class="file-label">Escolher foto de perfil</label>
                 </div>
-        @isset((auth()->user()->id))
-            @if($user->id == auth()->user()->id)
             <form enctype="multipart/form-data" action="{{ route("mudarFotoPerfil", ['profile' => $user->id])}}" method="POST">
                 @csrf
                 @method('put')
@@ -28,8 +31,10 @@ Perfil
                 <input type="file" name="profilePicture" id="profilePicture" class="file-input">
                 <button type="submit" id="alterarButton" style="display:none;" class="submit-btn">Alterar</button>
             </form>
+            @else
+                </div>
             @endif
-        @endisset
+        @endauth
     <h3>{{$user->name}}</h3>
             <p>Estudante</p>
             </div>
@@ -38,14 +43,14 @@ Perfil
                <div class="flex">
                <i class="fa-solid fa-ranking-star"></i>
                   <div>
-                     <span>30</span>
+                     <span>0</span>
                      <p>Pontuação</p>
                   </div>
                </div>
                <div class="flex">
                <i class="fa-solid fa-book"></i>
                <div>
-                  <span>3</span>
+                  <span>0</span>
                   <p>Atividades Realizadas</p>
                </div>
                </div>
@@ -56,7 +61,7 @@ Perfil
                <div class="flex">
                <i class="fa-solid fa-medal"></i>
                   <div>
-                     <span>15°</span>
+                     <span>--</span>
                      <p>Classificação</p>
                   </div>
                </div>
@@ -94,9 +99,9 @@ Perfil
                      </div>
                      
                      <div class="ranking-user">
-                        <p>15°</p>
-                        <p>Mateus</p>
-                        <p>30</p>
+                        <p>--</p>
+                        <p>{{$user->name}}</p>
+                        <p>0</p>
                      </div>
 
                      </div>
@@ -106,8 +111,9 @@ Perfil
             
          </div>
          
-
-         <div class="box-container">
+@auth
+@if($user->id == auth()->user()->id)
+<div class="box-container">
    <div class="box">
       <div class="flex">
          <i class="fas fa-bookmark"></i>
@@ -363,6 +369,8 @@ Perfil
         </div>
     </div>
 </section>
+@endif
+@endauth
 </main>
 
 <script>

@@ -17,7 +17,6 @@ Quiz
       <span class="spnQtd"></span>
       <span class="question"></span>
       <div class="answers"></div>
-      <p class="points">Pontuação <span id="questionValue">10</span></p>
     </div>
     <div class="finish">
       <p> Você acertou <span id="correctCount"></span> de <span id="totalCount"></span></p>
