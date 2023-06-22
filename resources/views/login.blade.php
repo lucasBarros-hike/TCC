@@ -1,7 +1,7 @@
 @extends('layouts.HtmlLogin')
 
 @section('title')
-Login
+Quiz
 @endsection
 
 @section('standard')

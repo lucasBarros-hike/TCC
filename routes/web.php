@@ -82,6 +82,7 @@ Route::group(['prefix' => 'forum'], function () {
 Route::get('/atividade', function () {return View('atividade');})->name('viewAtividade');
 Route::get('/sobre', function () {return View('sobre');})->name('viewSobre');
 Route::get('/contate-nos', function () {return View('contate-nos');})->name('viewContate-nos');
+Route::get('/quiz', function () {return View('quiz');})->name('viewQuiz');
 
 Route::group(['prefix' => 'perfil'], function () {
     //PERFIL
