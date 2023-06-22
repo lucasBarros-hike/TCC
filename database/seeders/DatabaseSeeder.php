@@ -105,23 +105,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         QuizActivities::create([
-            'name' => 'Introdução ao HTML',
-            'language' => 'HTML'
-        ]);
-
-        QuizActivities::create([
-            'name' => 'Introdução ao CSS',
-            'language' => 'CSS'
-        ]);
-
-        QuizActivities::create([
             'name' => 'Introdução ao Javascript',
             'language' => 'Javascript'
-        ]);
-
-        QuizActivities::create([
-            'name' => 'Introdução ao PHP',
-            'language' => 'PHP'
         ]);
     }
 }
